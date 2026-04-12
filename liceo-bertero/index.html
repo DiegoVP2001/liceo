@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Liceo Bicentenario Mario Bertero Cevasco — Formando ciudadanos íntegros con excelencia académica y valores." />
+  <title>Liceo Bicentenario Mario Bertero Cevasco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --color-primary:       #1a237e;
+      --color-primary-dark:  #0d1257;
+      --color-primary-light: #283593;
+      --color-gold:          #c9a84c;
+      --color-gold-light:    #e0c068;
+      --color-white:         #ffffff;
+      --color-off-white:     #f5f6fa;
+      --color-text:          #1a1a2e;
+      --color-text-muted:    #555577;
+      --color-border:        #dde1f0;
+      --color-success:       #2e7d32;
+
+      --font-base: 'Inter', system-ui, sans-serif;
+
+      --spacing-xs:  0.25rem;
+      --spacing-sm:  0.5rem;
+      --spacing-md:  1rem;
+      --spacing-lg:  1.5rem;
+      --spacing-xl:  2rem;
+      --spacing-2xl: 3rem;
+      --spacing-3xl: 4rem;
+
+      --radius-sm:  4px;
+      --radius-md:  8px;
+      --radius-lg:  16px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.12);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.12);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.16);
+
+      --transition: 0.25s ease;
+      --nav-height: 70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    body {
+      font-family: var(--font-base);
+      color: var(--color-text);
+      background: var(--color-white);
+      line-height: 1.6;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a  { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: var(--spacing-md);
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ============================================================
+       TOP BAR
+    ============================================================ */
+    .top-bar {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,.85);
+      font-size: .8rem;
+      padding: .35rem 0;
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+    .top-bar__contact {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+    .top-bar__contact a {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      transition: color var(--transition);
+    }
+    .top-bar__contact a:hover { color: var(--color-gold-light); }
+    .top-bar__social {
+      display: flex;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+    .top-bar__social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,.1);
+      transition: background var(--transition);
+    }
+    .top-bar__social a:hover { background: var(--color-gold); }
+    .top-bar__social svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+      height: var(--nav-height);
+    }
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: var(--spacing-md);
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex-shrink: 0;
+    }
+    .site-logo__emblem {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+    .site-logo__text { line-height: 1.2; }
+    .site-logo__name {
+      font-size: .85rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .site-logo__sub {
+      font-size: .7rem;
+      color: var(--color-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* Navigation */
+    .main-nav { display: flex; align-items: center; }
+    .main-nav__list {
+      display: flex;
+      gap: .15rem;
+    }
+    .main-nav__list a {
+      display: block;
+      padding: .5rem .75rem;
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--color-text);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+      white-space: nowrap;
+    }
+    .main-nav__list a:hover,
+    .main-nav__list a[aria-current="page"] {
+      color: var(--color-primary);
+      background: rgba(26,35,126,.07);
+    }
+    .main-nav__list a.nav-cta {
+      background: var(--color-gold);
+      color: var(--color-white);
+      border-radius: var(--radius-full);
+      padding: .5rem 1.1rem;
+    }
+    .main-nav__list a.nav-cta:hover {
+      background: var(--color-gold-light);
+      color: var(--color-primary-dark);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: .5rem;
+      border-radius: var(--radius-sm);
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+      .main-nav {
+        position: fixed;
+        inset: var(--nav-height) 0 0 0;
+        background: var(--color-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-lg);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+        overflow-y: auto;
+        box-shadow: var(--shadow-lg);
+      }
+      .main-nav.is-open { transform: translateX(0); }
+      .main-nav__list { flex-direction: column; gap: .25rem; width: 100%; }
+      .main-nav__list a { font-size: 1rem; padding: .75rem 1rem; }
+    }
+
+    /* ============================================================
+       HERO SLIDESHOW
+    ============================================================ */
+    .hero {
+      position: relative;
+      height: clamp(320px, 60vh, 540px);
+      overflow: hidden;
+      background: var(--color-primary-dark);
+    }
+    .hero__slides { position: relative; height: 100%; }
+    .hero__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .7s ease;
+    }
+    .hero__slide.is-active { opacity: 1; }
+    .hero__slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(13,18,87,.75) 40%, rgba(13,18,87,.2));
+    }
+    .hero__content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--spacing-xl) var(--spacing-2xl);
+      max-width: 640px;
+    }
+    .hero__tag {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-white);
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .25rem .75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-md);
+      width: fit-content;
+    }
+    .hero__title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--color-white);
+      line-height: 1.15;
+      margin-bottom: var(--spacing-md);
+    }
+    .hero__title em { color: var(--color-gold-light); font-style: normal; }
+    .hero__desc {
+      color: rgba(255,255,255,.88);
+      font-size: 1.05rem;
+      margin-bottom: var(--spacing-xl);
+      max-width: 460px;
+    }
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--color-gold);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: .8rem 1.75rem;
+      border-radius: var(--radius-full);
+      transition: background var(--transition), transform var(--transition);
+      width: fit-content;
+    }
+    .hero__cta:hover { background: var(--color-gold-light); color: var(--color-primary-dark); transform: translateY(-2px); }
+
+    .hero__controls {
+      position: absolute;
+      bottom: var(--spacing-md);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: .5rem;
+    }
+    .hero__dot {
+      width: 10px; height: 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,.4);
+      border: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .hero__dot.is-active { background: var(--color-gold); transform: scale(1.3); }
+
+    .hero__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.18);
+      color: white;
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: var(--radius-full);
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      transition: background var(--transition);
+    }
+    .hero__arrow:hover { background: var(--color-gold); border-color: var(--color-gold); }
+    .hero__arrow--prev { left: var(--spacing-md); }
+    .hero__arrow--next { right: var(--spacing-md); }
+
+    /* ============================================================
+       SECTION TITLES
+    ============================================================ */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-xl);
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 800;
+      color: var(--color-primary);
+      position: relative;
+      padding-bottom: .6rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 48px; height: 4px;
+      background: var(--color-gold);
+      border-radius: 2px;
+    }
+    .section-link {
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+    .section-link:hover { color: var(--color-gold); }
+
+    /* ============================================================
+       NOTICIAS
+    ============================================================ */
+    .noticias { padding: var(--spacing-3xl) 0; background: var(--color-white); }
+    .noticias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+    }
+    .noticia-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .noticia-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .noticia-card__img-wrap { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+    .noticia-card__img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .noticia-card:hover .noticia-card__img-wrap img { transform: scale(1.05); }
+    .noticia-card__category {
+      position: absolute;
+      top: var(--spacing-sm); left: var(--spacing-sm);
+      background: var(--color-gold);
+      color: white;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: .2rem .6rem;
+      border-radius: var(--radius-full);
+    }
+    .noticia-card__body { padding: var(--spacing-lg); flex: 1; display: flex; flex-direction: column; }
+    .noticia-card__date { font-size: .78rem; color: var(--color-text-muted); margin-bottom: var(--spacing-sm); }
+    .noticia-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.35;
+    }
+    .noticia-card__excerpt { font-size: .9rem; color: var(--color-text-muted); flex: 1; margin-bottom: var(--spacing-md); }
+    .btn-leer {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+      padding: .45rem 1rem;
+      border-radius: var(--radius-full);
+      transition: background var(--transition), color var(--transition);
+      width: fit-content;
+    }
+    .btn-leer:hover { background: var(--color-primary); color: var(--color-white); }
+
+    /* ============================================================
+       INSTAGRAM + AVISOS — layout 2 cols
+    ============================================================ */
+    .ig-avisos-section {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-off-white);
+    }
+    .ig-avisos-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--spacing-2xl);
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .ig-avisos-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Instagram */
+    .instagram-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
+    }
+    .instagram-header svg { width: 28px; height: 28px; }
+    .instagram-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--color-primary); }
+    .ig-handle {
+      font-size: .85rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-lg);
+      margin-top: -.5rem;
+    }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .ig-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+    .ig-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .ig-item:hover img { transform: scale(1.08); }
+    .ig-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,35,126,.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .ig-item:hover .ig-item__overlay { opacity: 1; }
+    .ig-item__overlay svg { width: 32px; height: 32px; fill: white; }
+    .ig-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: var(--spacing-lg);
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .6rem 1.4rem;
+      border-radius: var(--radius-full);
+      transition: opacity var(--transition);
+    }
+    .ig-cta:hover { opacity: .88; }
+
+    /* Avisos */
+    .avisos-card {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .avisos-card__header {
+      background: var(--color-primary-dark);
+      padding: var(--spacing-md) var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: 800;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      border-bottom: 3px solid var(--color-gold);
+    }
+    .avisos-card__header svg { width: 20px; height: 20px; fill: var(--color-gold); flex-shrink: 0; }
+    .avisos-list { padding: var(--spacing-md) var(--spacing-lg); }
+    .aviso-item {
+      display: flex;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      align-items: flex-start;
+    }
+    .aviso-item:last-child { border-bottom: none; }
+    .aviso-item__num {
+      background: var(--color-gold);
+      color: var(--color-primary-dark);
+      font-weight: 800;
+      font-size: .75rem;
+      width: 22px; height: 22px;
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .aviso-item a {
+      font-size: .88rem;
+      color: rgba(255,255,255,.9);
+      transition: color var(--transition);
+      line-height: 1.4;
+    }
+    .aviso-item a:hover { color: var(--color-gold-light); }
+
+    /* ============================================================
+       ESTADÍSTICAS
+    ============================================================ */
+    .estadisticas {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-primary);
+    }
+    .estadisticas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--spacing-xl);
+      text-align: center;
+    }
+    .stat-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    .stat-circle__ring {
+      width: 150px; height: 150px;
+      border-radius: var(--radius-full);
+      border: 6px solid var(--color-gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.06);
+    }
+    .stat-circle__number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--color-gold-light);
+      line-height: 1;
+    }
+    .stat-circle__unit {
+      font-size: .75rem;
+      color: rgba(255,255,255,.7);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 600;
+    }
+    .stat-circle__label {
+      font-size: .9rem;
+      color: rgba(255,255,255,.9);
+      font-weight: 600;
+      max-width: 140px;
+    }
+
+    /* ============================================================
+       MISIÓN
+    ============================================================ */
+    .mision {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-white);
+      text-align: center;
+    }
+    .mision__icon {
+      width: 80px; height: 80px;
+      margin-inline: auto;
+      margin-bottom: var(--spacing-lg);
+    }
+    .mision .section-title { margin-inline: auto; }
+    .mision .section-title::after { left: 50%; transform: translateX(-50%); }
+    .mision__text {
+      max-width: 680px;
+      margin-inline: auto;
+      margin-top: var(--spacing-xl);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .mision__values {
+      display: flex;
+      gap: var(--spacing-lg);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--spacing-xl);
+    }
+    .value-pill {
+      background: var(--color-off-white);
+      border: 2px solid var(--color-border);
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .5rem 1.2rem;
+      border-radius: var(--radius-full);
+    }
+
+    /* ============================================================
+       CONTACTO
+    ============================================================ */
+    .contacto {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-off-white);
+    }
+    .contacto-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-2xl);
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .contacto-layout { grid-template-columns: 1fr; }
+    }
+    .contacto-info h2 { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: var(--spacing-lg); }
+    .contacto-detail {
+      display: flex;
+      gap: var(--spacing-sm);
+      align-items: flex-start;
+      margin-bottom: var(--spacing-md);
+    }
+    .contacto-detail svg {
+      width: 20px; height: 20px;
+      fill: var(--color-gold);
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+    .contacto-detail p { font-size: .95rem; color: var(--color-text-muted); }
+    .contacto-detail strong { color: var(--color-text); display: block; }
+    .map-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: #dde1f0;
+    }
+    .map-placeholder iframe {
+      width: 100%; height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,.75);
+      padding: var(--spacing-3xl) 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--spacing-2xl);
+      margin-bottom: var(--spacing-2xl);
+    }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    .footer-brand__name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-white);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      margin-bottom: .25rem;
+      margin-top: var(--spacing-md);
+    }
+    .footer-brand__tagline { font-size: .82rem; color: var(--color-gold); font-weight: 600; margin-bottom: var(--spacing-md); }
+    .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h3 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--color-white);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: var(--spacing-md);
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--color-gold);
+      display: inline-block;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: .4rem; }
+    .footer-col ul a {
+      font-size: .88rem;
+      color: rgba(255,255,255,.7);
+      transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--color-gold-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: var(--spacing-md) 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      font-size: .8rem;
+    }
+    .footer-bottom a { color: var(--color-gold); }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       SKIP LINK
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--color-gold);
+      color: var(--color-white);
+      padding: .5rem 1rem;
+      font-weight: 700;
+      z-index: 9999;
+      border-radius: 0 0 var(--radius-sm) 0;
+      transition: top var(--transition);
+    }
+    .skip-link:focus { top: 0; }
+  </style>
+</head>
+<body>
+
+<!-- Skip navigation -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<!-- ============================================================
+     TOP BAR
+============================================================ -->
+<div class="top-bar" role="banner">
+  <div class="container">
+    <div class="top-bar__contact">
+      <a href="tel:+56223456789" aria-label="Teléfono del liceo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
+        +56 2 2345 6789
+      </a>
+      <a href="mailto:contacto@liceobertero.cl" aria-label="Correo del liceo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        contacto@liceobertero.cl
+      </a>
+    </div>
+    <div class="top-bar__social" aria-label="Redes sociales">
+      <a href="#" aria-label="Facebook del liceo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram del liceo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" stroke="white" stroke-width="1.5" fill="none"/></svg>
+      </a>
+      <a href="#" aria-label="YouTube del liceo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-logo" aria-label="Inicio — Liceo Bicentenario Mario Bertero Cevasco">
+      <img class="site-logo__emblem" src="logo.png" alt="" width="52" height="52" />
+      <div class="site-logo__text">
+        <div class="site-logo__name">Liceo Mario Bertero</div>
+        <div class="site-logo__sub">Liceo Bicentenario</div>
+      </div>
+    </a>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+      <ul class="main-nav__list" role="list">
+        <li><a href="#" aria-current="page">Inicio</a></li>
+        <li><a href="#noticias">Liceo</a></li>
+        <li><a href="#noticias">Académico</a></li>
+        <li><a href="#noticias">Comunidad</a></li>
+        <li><a href="#contacto">Servicios</a></li>
+        <li><a href="#contacto" class="nav-cta">Admisión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<main id="main-content">
+
+  <!-- HERO ---------------------------------------------------- -->
+  <section class="hero" aria-label="Banner principal" aria-roledescription="carrusel">
+    <div class="hero__slides">
+      <!-- Slide 1 -->
+      <div class="hero__slide is-active" role="group" aria-label="Diapositiva 1 de 3">
+        <img src="https://picsum.photos/seed/school1/1200/540" alt="Estudiantes del liceo en actividades académicas" width="1200" height="540" />
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__content">
+          <span class="hero__tag">Admisión 2026</span>
+          <h1 class="hero__title">Formando líderes con <em>excelencia académica</em></h1>
+          <p class="hero__desc">El Liceo Bicentenario Mario Bertero Cevasco te invita a ser parte de una comunidad educativa comprometida con la excelencia y los valores.</p>
+          <a href="#contacto" class="hero__cta">
+            + Más información
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero__slide" role="group" aria-label="Diapositiva 2 de 3">
+        <img src="https://picsum.photos/seed/school2/1200/540" alt="Instalaciones deportivas del liceo" width="1200" height="540" loading="lazy" />
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__content">
+          <span class="hero__tag">Deportes &amp; Cultura</span>
+          <h1 class="hero__title">Desarrollo <em>integral</em> en un ambiente de valores</h1>
+          <p class="hero__desc">Ofrecemos múltiples actividades extracurriculares para el desarrollo completo de nuestros estudiantes.</p>
+          <a href="#noticias" class="hero__cta">Ver actividades →</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero__slide" role="group" aria-label="Diapositiva 3 de 3">
+        <img src="https://picsum.photos/seed/school3/1200/540" alt="Graduación de estudiantes del liceo" width="1200" height="540" loading="lazy" />
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__content">
+          <span class="hero__tag">Especialidades Técnicas</span>
+          <h1 class="hero__title"><em>Especialidades</em> que abren puertas al futuro</h1>
+          <p class="hero__desc">Con 6 especialidades técnico-profesionales, preparamos a nuestros alumnos para la universidad y el mundo laboral.</p>
+          <a href="#contacto" class="hero__cta">Conoce las especialidades →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="hero__arrow hero__arrow--prev" aria-label="Diapositiva anterior">&#8592;</button>
+    <button class="hero__arrow hero__arrow--next" aria-label="Siguiente diapositiva">&#8594;</button>
+    <div class="hero__controls" role="tablist" aria-label="Seleccionar diapositiva">
+      <button class="hero__dot is-active" role="tab" aria-label="Diapositiva 1" aria-selected="true"></button>
+      <button class="hero__dot" role="tab" aria-label="Diapositiva 2" aria-selected="false"></button>
+      <button class="hero__dot" role="tab" aria-label="Diapositiva 3" aria-selected="false"></button>
+    </div>
+  </section>
+
+  <!-- NOTICIAS ------------------------------------------------ -->
+  <section class="noticias" id="noticias" aria-labelledby="noticias-titulo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="noticias-titulo">Noticias</h2>
+        <a href="#" class="section-link">Ver todas ›</a>
+      </div>
+      <div class="noticias-grid">
+
+        <article class="noticia-card">
+          <div class="noticia-card__img-wrap">
+            <img src="https://picsum.photos/seed/news1/600/340" alt="Ceremonia de premiación de excelencia académica" width="600" height="340" loading="lazy" />
+            <span class="noticia-card__category">Académico</span>
+          </div>
+          <div class="noticia-card__body">
+            <time class="noticia-card__date" datetime="2026-04-08">08 de abril, 2026</time>
+            <h3 class="noticia-card__title">Ceremonia de Premiación Excelencia Académica 2026</h3>
+            <p class="noticia-card__excerpt">El liceo celebró a sus mejores estudiantes en una emotiva ceremonia donde se reconoció el esfuerzo y dedicación del primer semestre.</p>
+            <a href="#" class="btn-leer" aria-label="Leer más sobre la ceremonia de premiación">Leer más ›</a>
+          </div>
+        </article>
+
+        <article class="noticia-card">
+          <div class="noticia-card__img-wrap">
+            <img src="https://picsum.photos/seed/news2/600/340" alt="Alumnos participando en torneo deportivo" width="600" height="340" loading="lazy" />
+            <span class="noticia-card__category">Deportes</span>
+          </div>
+          <div class="noticia-card__body">
+            <time class="noticia-card__date" datetime="2026-04-03">03 de abril, 2026</time>
+            <h3 class="noticia-card__title">Bertero campeón regional en atletismo escolar</h3>
+            <p class="noticia-card__excerpt">Nuestros estudiantes obtuvieron el primer lugar en la competencia regional de atletismo, representando con orgullo a la institución.</p>
+            <a href="#" class="btn-leer" aria-label="Leer más sobre el campeonato de atletismo">Leer más ›</a>
+          </div>
+        </article>
+
+        <article class="noticia-card">
+          <div class="noticia-card__img-wrap">
+            <img src="https://picsum.photos/seed/news3/600/340" alt="Estudiantes en taller de especialidad técnica" width="600" height="340" loading="lazy" />
+            <span class="noticia-card__category">Especialidades</span>
+          </div>
+          <div class="noticia-card__body">
+            <time class="noticia-card__date" datetime="2026-03-28">28 de marzo, 2026</time>
+            <h3 class="noticia-card__title">Familias conocen las nuevas especialidades técnicas 2026</h3>
+            <p class="noticia-card__excerpt">Una jornada de puertas abiertas permitió a las familias explorar los talleres de Administración, Contabilidad, Gastronomía y más.</p>
+            <a href="#" class="btn-leer" aria-label="Leer más sobre las especialidades técnicas">Leer más ›</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM + AVISOS -------------------------------------- -->
+  <section class="ig-avisos-section" aria-labelledby="instagram-titulo">
+    <div class="container">
+      <div class="ig-avisos-layout">
+
+        <!-- Instagram -->
+        <div>
+          <div class="instagram-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig-grad)" stroke-width="2" aria-hidden="true">
+              <defs>
+                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#f09433"/>
+                  <stop offset="50%" stop-color="#dc2743"/>
+                  <stop offset="100%" stop-color="#bc1888"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="#dc2743" stroke="none"/>
+            </svg>
+            <h2 id="instagram-titulo">Instagram</h2>
+          </div>
+          <p class="ig-handle">@liceobertero_oficial</p>
+          <div class="ig-grid" role="list">
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 1 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig1/300/300" alt="Actividad estudiantil en el liceo" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 2 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig2/300/300" alt="Estudiantes en actividades culturales" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 3 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig3/300/300" alt="Ceremonia escolar en el patio central" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 4 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig4/300/300" alt="Taller de especialidad técnica" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 5 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig5/300/300" alt="Día del deporte escolar" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+            <a href="#" class="ig-item" role="listitem" aria-label="Ver publicación 6 en Instagram" target="_blank" rel="noopener">
+              <img src="https://picsum.photos/seed/ig6/300/300" alt="Graduación de alumnos de cuarto medio" width="300" height="300" loading="lazy" />
+              <div class="ig-item__overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+              </div>
+            </a>
+          </div>
+          <a href="#" class="ig-cta" target="_blank" rel="noopener" aria-label="Seguirnos en Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="white" stroke="none"/>
+            </svg>
+            Seguir en Instagram
+          </a>
+        </div>
+
+        <!-- Avisos Importantes -->
+        <aside aria-labelledby="avisos-titulo">
+          <div class="avisos-card">
+            <div class="avisos-card__header">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+              <span id="avisos-titulo">Avisos Importantes</span>
+            </div>
+            <nav class="avisos-list" aria-label="Lista de avisos importantes">
+              <ul role="list">
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">01</span>
+                  <a href="#">Matrícula 2026 — Período de postulación abierto</a>
+                </li>
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">02</span>
+                  <a href="#">Plan Lector 2026 — Descarga la lista de libros</a>
+                </li>
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">03</span>
+                  <a href="#">Reglamento Interno actualizado — Descarga aquí</a>
+                </li>
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">04</span>
+                  <a href="#">Uniforme Escolar 2026 — Proveedor oficial</a>
+                </li>
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">05</span>
+                  <a href="#">Orientación interna — Proceso de derivación</a>
+                </li>
+                <li class="aviso-item">
+                  <span class="aviso-item__num" aria-hidden="true">06</span>
+                  <a href="#">Solicitud Plan de Acompañamiento Individualizado</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADÍSTICAS ------------------------------------------- -->
+  <section class="estadisticas" aria-labelledby="estadisticas-titulo">
+    <div class="container">
+      <h2 id="estadisticas-titulo" class="sr-only">Estadísticas del liceo</h2>
+      <div class="estadisticas-grid">
+        <div class="stat-circle">
+          <div class="stat-circle__ring">
+            <span class="stat-circle__number" aria-label="75">75</span>
+            <span class="stat-circle__unit">años</span>
+          </div>
+          <p class="stat-circle__label">de trayectoria educativa en Chile</p>
+        </div>
+        <div class="stat-circle">
+          <div class="stat-circle__ring">
+            <span class="stat-circle__number" aria-label="1200">1.200</span>
+            <span class="stat-circle__unit">alumnos</span>
+          </div>
+          <p class="stat-circle__label">formados cada año en nuestra comunidad</p>
+        </div>
+        <div class="stat-circle">
+          <div class="stat-circle__ring">
+            <span class="stat-circle__number" aria-label="6">6</span>
+            <span class="stat-circle__unit">especialidades</span>
+          </div>
+          <p class="stat-circle__label">técnico-profesionales disponibles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN -------------------------------------------------- -->
+  <section class="mision" aria-labelledby="mision-titulo">
+    <div class="container">
+      <img class="mision__icon" src="logo.png" alt="" width="80" height="80" />
+      <h2 class="section-title" id="mision-titulo">Nuestra Misión</h2>
+      <p class="mision__text">
+        El Liceo Bicentenario Mario Bertero Cevasco tiene como misión formar ciudadanos íntegros con excelencia académica y valores sólidos, brindando una educación técnico-profesional de calidad que prepare a nuestros estudiantes para integrarse a la sociedad con liderazgo, responsabilidad y compromiso con su comunidad.
+      </p>
+      <div class="mision__values" role="list" aria-label="Valores del liceo">
+        <span class="value-pill" role="listitem">Excelencia</span>
+        <span class="value-pill" role="listitem">Integridad</span>
+        <span class="value-pill" role="listitem">Respeto</span>
+        <span class="value-pill" role="listitem">Responsabilidad</span>
+        <span class="value-pill" role="listitem">Liderazgo</span>
+        <span class="value-pill" role="listitem">Comunidad</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO ----------------------------------------------- -->
+  <section class="contacto" id="contacto" aria-labelledby="contacto-titulo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="contacto-titulo">Contacto</h2>
+      </div>
+      <div class="contacto-layout">
+        <div class="contacto-info">
+          <h2>Liceo Bicentenario<br/>Mario Bertero Cevasco</h2>
+          <div class="contacto-detail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <p><strong>Dirección</strong>Av. Ejemplo 1234, Santiago, Región Metropolitana</p>
+          </div>
+          <div class="contacto-detail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
+            <p><strong>Teléfono</strong>+56 2 2345 6789</p>
+          </div>
+          <div class="contacto-detail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+            <p><strong>Correo</strong>contacto@liceobertero.cl</p>
+          </div>
+          <div class="contacto-detail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <p><strong>Horario de atención</strong>Lunes a Viernes, 8:00 – 17:00 hrs.</p>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <!-- Mapa embebido de OpenStreetMap (privacidad amigable, sin cookies) -->
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-70.6800%2C-33.4700%2C-70.6400%2C-33.4400&amp;layer=mapnik"
+            title="Mapa de ubicación del Liceo Bicentenario Mario Bertero Cevasco"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="" width="56" height="56" />
+        <p class="footer-brand__name">Liceo Mario Bertero Cevasco</p>
+        <p class="footer-brand__tagline">Liceo Bicentenario</p>
+        <p>Formando ciudadanos íntegros con excelencia académica y valores desde hace más de 75 años.</p>
+      </div>
+      <nav class="footer-col" aria-label="Institución">
+        <h3>Institución</h3>
+        <ul role="list">
+          <li><a href="#">Historia del Liceo</a></li>
+          <li><a href="#">Misión y Visión</a></li>
+          <li><a href="#">Proyecto Educativo</a></li>
+          <li><a href="#">Equipo Directivo</a></li>
+          <li><a href="#">Reglamentos</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Académico">
+        <h3>Académico</h3>
+        <ul role="list">
+          <li><a href="#">Especialidades TP</a></li>
+          <li><a href="#">Plan de Estudios</a></li>
+          <li><a href="#">Calendario Escolar</a></li>
+          <li><a href="#">Biblioteca</a></li>
+          <li><a href="#">Plataforma Virtual</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Comunidad">
+        <h3>Comunidad</h3>
+        <ul role="list">
+          <li><a href="#">Centro de Alumnos</a></li>
+          <li><a href="#">Centro de Padres</a></li>
+          <li><a href="#">Actividades</a></li>
+          <li><a href="#">Admisión 2026</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Liceo Bicentenario Mario Bertero Cevasco. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Política de privacidad</a> ·
+        <a href="#">Transparencia activa</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // ---- Hamburger menu ----------------------------------------
+  const hamburger = document.querySelector('.hamburger');
+  const mainNav   = document.getElementById('main-nav');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    mainNav.classList.toggle('is-open', !expanded);
+  });
+
+  // Close nav on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+      mainNav.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.focus();
+    }
+  });
+
+  // Close nav when a link is clicked (mobile)
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        mainNav.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // ---- Hero Slideshow ----------------------------------------
+  const slides = document.querySelectorAll('.hero__slide');
+  const dots   = document.querySelectorAll('.hero__dot');
+  let current  = 0;
+  let timer;
+
+  function goTo(idx) {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    dots[current].setAttribute('aria-selected', 'false');
+
+    current = (idx + slides.length) % slides.length;
+
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+    dots[current].setAttribute('aria-selected', 'true');
+  }
+
+  function startTimer() {
+    // Respect prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
+
+  document.querySelector('.hero__arrow--prev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  document.querySelector('.hero__arrow--next').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+  });
+
+  // Keyboard navigation for arrows
+  document.querySelector('.hero').addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetTimer(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetTimer(); }
+  });
+
+  startTimer();
+
+  // ---- Sticky header shadow -----------------------------------
+  const header = document.querySelector('.site-header');
+  const observer = new IntersectionObserver(
+    ([entry]) => header.style.boxShadow = entry.isIntersecting ? 'none' : 'var(--shadow-md)',
+    { threshold: 1, rootMargin: '0px 0px -100% 0px' }
+  );
+  // Watch top of page
+  const sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:0;height:1px;width:1px;';
+  document.body.prepend(sentinel);
+  observer.observe(sentinel);
+</script>
+
+</body>
+</html>
