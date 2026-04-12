@@ -100,7 +100,14 @@
     .top-bar__contact {
       display: flex;
       gap: var(--spacing-md);
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      align-items: center;
+      overflow: hidden;
+    }
+    .top-bar__contact a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .top-bar__contact a {
       display: flex;
@@ -1069,35 +1076,6 @@
     </div>
   </section>
 
-  <!-- ESTADÍSTICAS ------------------------------------------- -->
-  <section class="estadisticas" aria-labelledby="estadisticas-titulo">
-    <div class="container">
-      <h2 id="estadisticas-titulo" class="sr-only">Estadísticas del liceo</h2>
-      <div class="estadisticas-grid">
-        <div class="stat-circle">
-          <div class="stat-circle__ring">
-            <span class="stat-circle__number" aria-label="75">75</span>
-            <span class="stat-circle__unit">años</span>
-          </div>
-          <p class="stat-circle__label">de trayectoria educativa en Chile</p>
-        </div>
-        <div class="stat-circle">
-          <div class="stat-circle__ring">
-            <span class="stat-circle__number" aria-label="1200">1.200</span>
-            <span class="stat-circle__unit">alumnos</span>
-          </div>
-          <p class="stat-circle__label">formados cada año en nuestra comunidad</p>
-        </div>
-        <div class="stat-circle">
-          <div class="stat-circle__ring">
-            <span class="stat-circle__number" aria-label="6">6</span>
-            <span class="stat-circle__unit">especialidades</span>
-          </div>
-          <p class="stat-circle__label">técnico-profesionales disponibles</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- MISIÓN -------------------------------------------------- -->
   <section class="mision" aria-labelledby="mision-titulo">
@@ -1170,7 +1148,7 @@
         <img src="logo.png" alt="" width="56" height="56" />
         <p class="footer-brand__name">Liceo Mario Bertero Cevasco</p>
         <p class="footer-brand__tagline">Liceo Bicentenario</p>
-        <p>Formando ciudadanos íntegros con excelencia académica y valores desde hace más de 75 años.</p>
+        <p>Formando ciudadanos íntegros con excelencia académica y valores desde 1995.</p>
       </div>
       <nav class="footer-col" aria-label="Institución">
         <h3>Institución</h3>
