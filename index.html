@@ -842,6 +842,8 @@
       flex-direction: column;
       gap: var(--spacing-sm);
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      text-decoration: none;
+      color: inherit;
     }
     .programa-card:hover {
       border-color: var(--color-gold);
@@ -874,6 +876,39 @@
       color: var(--color-text-muted);
       line-height: 1.5;
     }
+
+    /* ============================================================
+       HORARIOS (mini apartado en contacto)
+    ============================================================ */
+    .horarios-mini {
+      margin-top: var(--spacing-xl);
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      color: white;
+    }
+    .horarios-mini h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--color-gold);
+      margin-bottom: var(--spacing-md);
+      padding-bottom: .4rem;
+      border-bottom: 2px solid rgba(255,255,255,.15);
+    }
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      font-size: .88rem;
+      gap: var(--spacing-md);
+    }
+    .horario-row:last-child { border-bottom: none; }
+    .horario-row__dia { color: rgba(255,255,255,.75); }
+    .horario-row__hora { font-weight: 700; color: var(--color-gold-light); white-space: nowrap; }
 
     /* ============================================================
        SECCIÓN EN CONSTRUCCIÓN
@@ -990,13 +1025,13 @@
 <div class="top-bar" role="banner">
   <div class="container">
     <div class="top-bar__contact">
-      <a href="tel:+56233395060" aria-label="Teléfono del liceo">
+      <a href="tel:+56995525639" aria-label="Teléfono del liceo">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
-        +56 2 3339 5060
+        +56 9 9552 5639
       </a>
-      <a href="mailto:liceomariobertero@corporacionislademaipo.cl" aria-label="Correo del liceo">
+      <a href="mailto:info-mbc@corporacionislademaipo.cl" aria-label="Correo del liceo">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
-        liceomariobertero@corporacionislademaipo.cl
+        info-mbc@corporacionislademaipo.cl
       </a>
     </div>
     <div class="top-bar__social" aria-label="Redes sociales">
@@ -1036,17 +1071,16 @@
         <li class="main-nav__item">
           <a href="#el-liceo">El Liceo <span class="nav-arrow">▼</span></a>
           <div class="dropdown" role="menu">
-            <a href="#el-liceo" role="menuitem">Organigrama</a>
-            <a href="#el-liceo" role="menuitem">Reglamentos y Planes</a>
-            <a href="#el-liceo" role="menuitem">Profesores</a>
+            <a href="organigrama.html" role="menuitem">Organigrama</a>
+            <a href="reglamentos.html" role="menuitem">Reglamentos y Planes</a>
+            <a href="profesores-jefe.html" role="menuitem">Profesores Jefe</a>
           </div>
         </li>
         <li class="main-nav__item">
           <a href="#academico">Académico <span class="nav-arrow">▼</span></a>
           <div class="dropdown" role="menu">
-            <a href="#academico" role="menuitem">Currículum y Planes</a>
-            <a href="#academico" role="menuitem">Horarios</a>
-            <a href="#academico" role="menuitem">Talleres Extracurriculares</a>
+            <a href="curriculo.html" role="menuitem">Currículum y Planes</a>
+            <a href="talleres.html" role="menuitem">Talleres Extracurriculares</a>
           </div>
         </li>
         <li class="main-nav__item">
@@ -1057,7 +1091,7 @@
           </div>
         </li>
         <li class="main-nav__item"><a href="#contacto">Contacto</a></li>
-        <li class="main-nav__item"><a href="#contacto" class="nav-cta">Admisión</a></li>
+        <li class="main-nav__item"><a href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener" class="nav-cta">Admisión</a></li>
       </ul>
     </nav>
   </div>
@@ -1399,77 +1433,77 @@
       </div>
       <div class="programas-grid">
 
-        <div class="programa-card">
+        <a href="https://academiadetalentos.uc.cl/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <span class="programa-card__tag">Universidad</span>
           <p class="programa-card__name">PentaUC</p>
-          <p class="programa-card__desc">Programa de talentos académicos de la Pontificia Universidad Católica de Chile.</p>
-        </div>
+          <p class="programa-card__desc">Programa de talentos académicos de la Pontificia Universidad Católica de Chile para estudiantes de alto rendimiento.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://technovation.cl/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </div>
           <span class="programa-card__tag">Tecnología</span>
           <p class="programa-card__name">Technovation Girls</p>
-          <p class="programa-card__desc">Programa internacional que impulsa a jóvenes mujeres a crear soluciones tecnológicas.</p>
-        </div>
+          <p class="programa-card__desc">Impulsar el interés de niñas y adolescentes chilenas por el desarrollo de nuevas tecnologías y la innovación digital.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://datae.usm.cl/programa-propedeutico-usm/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <span class="programa-card__tag">Propedéutico</span>
           <p class="programa-card__name">USM — U. Técnica Santa María</p>
-          <p class="programa-card__desc">Programa propedéutico de acceso a la educación superior para estudiantes destacados.</p>
-        </div>
+          <p class="programa-card__desc">Programa propedéutico de acceso a la educación superior para estudiantes destacados de establecimientos vulnerables.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://www.utem.cl/universidad/calidad/propedeutico/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <span class="programa-card__tag">Propedéutico</span>
           <p class="programa-card__name">UTEM — U. Tecnológica Metropolitana</p>
-          <p class="programa-card__desc">Convenio propedéutico para el acceso preferente a carreras de la UTEM.</p>
-        </div>
+          <p class="programa-card__desc">Convenio propedéutico para el acceso preferente a carreras de la Universidad Tecnológica Metropolitana.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://umceold.umce.cl/index.php/admision/programa-propedeutico" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <span class="programa-card__tag">Propedéutico</span>
           <p class="programa-card__name">UMCE — U. Metropolitana de Cs. de la Educación</p>
-          <p class="programa-card__desc">Programa de acceso inclusivo a la educación superior en el área pedagógica.</p>
-        </div>
+          <p class="programa-card__desc">Programa de acceso inclusivo a la educación superior en el área pedagógica para estudiantes meritorios.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://www.instagram.com/cmatchile/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <span class="programa-card__tag">Competencia</span>
           <p class="programa-card__name">CMAT — Campeonato Nacional de Matemáticas</p>
-          <p class="programa-card__desc">Torneo nacional de matemáticas para estudiantes de enseñanza media.</p>
-        </div>
+          <p class="programa-card__desc">Torneo nacional de matemáticas para estudiantes de enseñanza media a lo largo de todo Chile.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://www.instagram.com/torneo_delibera/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <span class="programa-card__tag">Competencia</span>
-          <p class="programa-card__name">Torneo Delivera</p>
-          <p class="programa-card__desc">Competencia de habilidades y emprendimiento para estudiantes técnico-profesionales.</p>
-        </div>
+          <span class="programa-card__tag">Formación Cívica</span>
+          <p class="programa-card__name">Torneo Delibera</p>
+          <p class="programa-card__desc">Torneo interescolar de deliberación cívica organizado por la Biblioteca del Congreso Nacional, donde estudiantes elaboran una Iniciativa Juvenil de Ley para solucionar una problemática que los motive.</p>
+        </a>
 
-        <div class="programa-card">
+        <a href="https://explorandomientorno.cl/el-concurso/" target="_blank" rel="noopener" class="programa-card">
           <div class="programa-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
           <span class="programa-card__tag">UC</span>
           <p class="programa-card__name">Explorando Mi Entorno — Centro UC</p>
-          <p class="programa-card__desc">Programa de exploración científica y medioambiental del entorno local.</p>
-        </div>
+          <p class="programa-card__desc">Invita a estudiantes de 6º a 8º básico a investigar un ecosistema local y presentar los resultados en un video creativo.</p>
+        </a>
 
       </div>
     </div>
@@ -1507,8 +1541,23 @@
             <p><strong>Dirección</strong>Rogelio Olave #989, Isla de Maipo, Región Metropolitana</p>
           </div>
           <div class="contacto-detail">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <p><strong>Horario de atención</strong>Lunes a Viernes, 8:00 – 17:00 hrs.</p>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <p><strong>Dirección</strong>Rogelio Olave #989, Isla de Maipo, Región Metropolitana</p>
+          </div>
+          <div class="horarios-mini" aria-label="Horarios del liceo">
+            <h3>⏰ Horarios</h3>
+            <div class="horario-row">
+              <span class="horario-row__dia">Clases (Lunes a Viernes)</span>
+              <span class="horario-row__hora">08:00 – 16:30 hrs.</span>
+            </div>
+            <div class="horario-row">
+              <span class="horario-row__dia">Atención de apoderados</span>
+              <span class="horario-row__hora">Lunes a Viernes 08:00 – 17:00 hrs.</span>
+            </div>
+            <div class="horario-row">
+              <span class="horario-row__dia">Secretaría / Recepción</span>
+              <span class="horario-row__hora">08:00 – 16:00 hrs.</span>
+            </div>
           </div>
         </div>
         <div class="map-placeholder">

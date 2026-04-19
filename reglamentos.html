@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reglamentos y Planes — Liceo Bicentenario Mario Bertero Cevasco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #1a237e; --color-primary-dark: #0d1257;
+      --color-gold: #c9a84c; --color-gold-light: #e0c068;
+      --color-white: #ffffff; --color-off-white: #f5f6fa;
+      --color-text: #1a1a2e; --color-text-muted: #555577;
+      --color-border: #dde1f0;
+      --font-base: 'Inter', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.12); --shadow-md: 0 4px 16px rgba(0,0,0,.12);
+      --radius-md: 8px; --radius-lg: 16px; --radius-full: 9999px;
+      --transition: 0.25s ease; --nav-height: 70px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-white); }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { width: 100%; max-width: 1100px; margin-inline: auto; padding-inline: 1rem; }
+    .top-bar { background: var(--color-primary-dark); color: rgba(255,255,255,.85); font-size: .8rem; padding: .35rem 0; }
+    .top-bar .container { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
+    .top-bar__contact { display: flex; gap: 1rem; flex-wrap: nowrap; align-items: center; }
+    .top-bar__contact a { display: flex; align-items: center; gap: .3rem; white-space: nowrap; transition: color var(--transition); }
+    .top-bar__contact a:hover { color: var(--color-gold-light); }
+    .top-bar__contact svg { width: 13px; height: 13px; fill: currentColor; }
+    .site-header { background: var(--color-white); box-shadow: var(--shadow-sm); height: var(--nav-height); position: sticky; top: 0; z-index: 100; }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
+    .site-logo { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
+    .site-logo img { width: 48px; height: 48px; }
+    .site-logo__name { font-size: .85rem; font-weight: 800; color: var(--color-primary); text-transform: uppercase; }
+    .site-logo__sub { font-size: .7rem; color: var(--color-gold); font-weight: 600; text-transform: uppercase; }
+    .back-btn { display: inline-flex; align-items: center; gap: .4rem; font-size: .875rem; font-weight: 700; color: var(--color-primary); border: 2px solid var(--color-primary); padding: .4rem 1rem; border-radius: var(--radius-full); transition: background var(--transition), color var(--transition); }
+    .back-btn:hover { background: var(--color-primary); color: white; }
+    .page-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: white; padding: 3rem 0; }
+    .page-hero__tag { display: inline-block; background: var(--color-gold); color: white; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding: .2rem .75rem; border-radius: var(--radius-full); margin-bottom: 1rem; }
+    .page-hero h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: .75rem; }
+    .page-hero p { color: rgba(255,255,255,.8); font-size: 1rem; max-width: 540px; }
+    .page-content { padding: 3rem 0; }
+    .section-title { font-size: 1.3rem; font-weight: 800; color: var(--color-primary); padding-bottom: .5rem; border-bottom: 3px solid var(--color-gold); display: inline-block; margin-bottom: 1.5rem; }
+    .docs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .doc-card { border: 2px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color var(--transition), box-shadow var(--transition); }
+    .doc-card:hover { border-color: var(--color-gold); box-shadow: var(--shadow-md); }
+    .doc-card__icon { width: 44px; height: 44px; background: var(--color-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .doc-card__icon svg { width: 22px; height: 22px; fill: var(--color-gold); }
+    .doc-card__info { flex: 1; }
+    .doc-card__name { font-size: .95rem; font-weight: 700; color: var(--color-primary); margin-bottom: .2rem; }
+    .doc-card__meta { font-size: .78rem; color: var(--color-text-muted); }
+    .badge-proximamente { display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: var(--color-off-white); border: 1px solid var(--color-border); color: var(--color-text-muted); padding: .15rem .6rem; border-radius: var(--radius-full); margin-top: .3rem; }
+    .site-footer { background: var(--color-primary-dark); color: rgba(255,255,255,.6); padding: 1.5rem 0; margin-top: 3rem; font-size: .82rem; text-align: center; }
+    .site-footer a { color: var(--color-gold); }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar__contact">
+      <a href="tel:+56995525639">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
+        +56 9 9552 5639
+      </a>
+      <a href="mailto:info-mbc@corporacionislademaipo.cl">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        info-mbc@corporacionislademaipo.cl
+      </a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="logo.png" alt="Logo Liceo Mario Bertero" width="48" height="48" />
+      <div>
+        <div class="site-logo__name">Liceo Mario Bertero</div>
+        <div class="site-logo__sub">Liceo Bicentenario</div>
+      </div>
+    </a>
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="page-hero__tag">El Liceo</span>
+    <h1>Reglamentos y Planes</h1>
+    <p>Documentos oficiales de convivencia, normativa interna y planes institucionales del liceo.</p>
+  </div>
+</div>
+
+<main class="page-content">
+  <div class="container">
+
+    <h2 class="section-title">Reglamentos</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Reglamento Interno de Convivencia Escolar</p>
+          <p class="doc-card__meta">Normativa de conducta y convivencia</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Reglamento de Evaluación y Promoción</p>
+          <p class="doc-card__meta">Criterios de calificación y promoción escolar</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Protocolo de Actuación ante Situaciones de Vulneración</p>
+          <p class="doc-card__meta">Procedimientos de protección estudiantil</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Planes Institucionales</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Proyecto Educativo Institucional (PEI)</p>
+          <p class="doc-card__meta">Visión, misión y objetivos estratégicos</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Plan de Mejoramiento Educativo (PME)</p>
+          <p class="doc-card__meta">Iniciativas de mejora para el año en curso</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Plan de Formación Ciudadana</p>
+          <p class="doc-card__meta">Actividades cívicas y participación democrática</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="doc-card__info">
+          <p class="doc-card__name">Plan de Gestión de la Convivencia Escolar</p>
+          <p class="doc-card__meta">Estrategias de buen trato y resolución de conflictos</p>
+          <span class="badge-proximamente">Próximamente disponible</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="index.html">Liceo Bicentenario Mario Bertero Cevasco</a> — Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
