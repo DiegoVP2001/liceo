@@ -774,6 +774,194 @@
     .footer-bottom a:hover { text-decoration: underline; }
 
     /* ============================================================
+       DROPDOWN NAV
+    ============================================================ */
+    .main-nav__item { position: relative; }
+    .main-nav__item:hover .dropdown,
+    .main-nav__item:focus-within .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      border-top: 3px solid var(--color-gold);
+      min-width: 220px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 200;
+    }
+    .dropdown a {
+      display: block;
+      padding: .6rem 1rem;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--transition), color var(--transition);
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a:hover { background: var(--color-off-white); color: var(--color-primary); }
+    .nav-arrow { font-size: .6rem; margin-left: .2rem; }
+    @media (max-width: 900px) {
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--color-gold);
+        border-radius: 0;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        margin-left: var(--spacing-md);
+        display: none;
+      }
+      .main-nav__item.is-open .dropdown { display: block; }
+    }
+
+    /* ============================================================
+       PROGRAMAS Y CONVENIOS
+    ============================================================ */
+    .programas {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-white);
+    }
+    .programas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    .programa-card {
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .programa-card:hover {
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .programa-card__icon {
+      width: 44px; height: 44px;
+      background: var(--color-primary);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .programa-card__icon svg { width: 22px; height: 22px; fill: var(--color-gold); }
+    .programa-card__tag {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--color-gold);
+    }
+    .programa-card__name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+    .programa-card__desc {
+      font-size: .85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SECCIÓN EN CONSTRUCCIÓN
+    ============================================================ */
+    .en-construccion {
+      padding: var(--spacing-3xl) 0;
+      background: var(--color-off-white);
+    }
+    .construccion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    .construccion-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 2px dashed var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    .construccion-card__icon {
+      width: 52px; height: 52px;
+      background: var(--color-off-white);
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--spacing-sm);
+    }
+    .construccion-card__icon svg { width: 26px; height: 26px; fill: var(--color-primary); opacity: .5; }
+    .construccion-card__title {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .construccion-card__msg {
+      font-size: .8rem;
+      color: var(--color-text-muted);
+    }
+    .construccion-badge {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: var(--color-off-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: .2rem .7rem;
+      border-radius: var(--radius-full);
+    }
+
+    /* ============================================================
+       CONTACTO AMPLIADO
+    ============================================================ */
+    .contacto-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-2xl);
+    }
+    .contacto-card-item {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      border-left: 4px solid var(--color-gold);
+      box-shadow: var(--shadow-sm);
+    }
+    .contacto-card-item__label {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--color-gold);
+      margin-bottom: .25rem;
+    }
+    .contacto-card-item__value {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      word-break: break-all;
+    }
+    .contacto-card-item a { color: var(--color-primary); transition: color var(--transition); }
+    .contacto-card-item a:hover { color: var(--color-gold); }
+
+    /* ============================================================
        SKIP LINK
     ============================================================ */
     .skip-link {
@@ -844,12 +1032,32 @@
 
     <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
       <ul class="main-nav__list" role="list">
-        <li><a href="#" aria-current="page">Inicio</a></li>
-        <li><a href="#noticias">Liceo</a></li>
-        <li><a href="#noticias">Académico</a></li>
-        <li><a href="#noticias">Comunidad</a></li>
-        <li><a href="#contacto">Servicios</a></li>
-        <li><a href="#contacto" class="nav-cta">Admisión</a></li>
+        <li class="main-nav__item"><a href="#" aria-current="page">Inicio</a></li>
+        <li class="main-nav__item">
+          <a href="#el-liceo">El Liceo <span class="nav-arrow">▼</span></a>
+          <div class="dropdown" role="menu">
+            <a href="#el-liceo" role="menuitem">Organigrama</a>
+            <a href="#el-liceo" role="menuitem">Reglamentos y Planes</a>
+            <a href="#el-liceo" role="menuitem">Profesores</a>
+          </div>
+        </li>
+        <li class="main-nav__item">
+          <a href="#academico">Académico <span class="nav-arrow">▼</span></a>
+          <div class="dropdown" role="menu">
+            <a href="#academico" role="menuitem">Currículum y Planes</a>
+            <a href="#academico" role="menuitem">Horarios</a>
+            <a href="#academico" role="menuitem">Talleres Extracurriculares</a>
+          </div>
+        </li>
+        <li class="main-nav__item">
+          <a href="#programas">Comunidad <span class="nav-arrow">▼</span></a>
+          <div class="dropdown" role="menu">
+            <a href="#programas" role="menuitem">Programas y Convenios</a>
+            <a href="#noticias" role="menuitem">Noticias</a>
+          </div>
+        </li>
+        <li class="main-nav__item"><a href="#contacto">Contacto</a></li>
+        <li class="main-nav__item"><a href="#contacto" class="nav-cta">Admisión</a></li>
       </ul>
     </nav>
   </div>
@@ -1096,6 +1304,177 @@
     </div>
   </section>
 
+  <!-- SECCIONES EN CONSTRUCCIÓN ------------------------------ -->
+  <section class="en-construccion" id="el-liceo" aria-labelledby="construccion-titulo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="construccion-titulo">El Liceo</h2>
+      </div>
+      <div class="construccion-grid">
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <p class="construccion-card__title">Organigrama</p>
+          <p class="construccion-card__msg">Estructura institucional y equipo directivo</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <p class="construccion-card__title">Reglamentos y Planes</p>
+          <p class="construccion-card__msg">Reglamento interno, convivencia y planes de estudio</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <p class="construccion-card__title">Profesores Jefe</p>
+          <p class="construccion-card__msg">Foto, nombre y correo de cada profesor jefe por curso</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <p class="construccion-card__title">Horarios</p>
+          <p class="construccion-card__msg">Horario escolar y atención de apoderados</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES ACADÉMICO EN CONSTRUCCIÓN -------------------- -->
+  <section class="en-construccion" id="academico" style="background: var(--color-white);" aria-labelledby="academico-titulo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="academico-titulo">Académico</h2>
+      </div>
+      <div class="construccion-grid">
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <p class="construccion-card__title">Currículum y Planes Diferenciados</p>
+          <p class="construccion-card__msg">Planes de estudio y especialidades técnicas</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <p class="construccion-card__title">Horarios Escolares</p>
+          <p class="construccion-card__msg">Horario semanal por nivel y atención de apoderados</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+        <div class="construccion-card">
+          <div class="construccion-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="construccion-card__title">Talleres Extracurriculares</p>
+          <p class="construccion-card__msg">Actividades deportivas, artísticas y culturales</p>
+          <span class="construccion-badge">Próximamente</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAS Y CONVENIOS ---------------------------------- -->
+  <section class="programas" id="programas" aria-labelledby="programas-titulo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="programas-titulo">Programas y Convenios</h2>
+      </div>
+      <div class="programas-grid">
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="programa-card__tag">Universidad</span>
+          <p class="programa-card__name">PentaUC</p>
+          <p class="programa-card__desc">Programa de talentos académicos de la Pontificia Universidad Católica de Chile.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <span class="programa-card__tag">Tecnología</span>
+          <p class="programa-card__name">Technovation Girls</p>
+          <p class="programa-card__desc">Programa internacional que impulsa a jóvenes mujeres a crear soluciones tecnológicas.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="programa-card__tag">Propedéutico</span>
+          <p class="programa-card__name">USM — U. Técnica Santa María</p>
+          <p class="programa-card__desc">Programa propedéutico de acceso a la educación superior para estudiantes destacados.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="programa-card__tag">Propedéutico</span>
+          <p class="programa-card__name">UTEM — U. Tecnológica Metropolitana</p>
+          <p class="programa-card__desc">Convenio propedéutico para el acceso preferente a carreras de la UTEM.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="programa-card__tag">Propedéutico</span>
+          <p class="programa-card__name">UMCE — U. Metropolitana de Cs. de la Educación</p>
+          <p class="programa-card__desc">Programa de acceso inclusivo a la educación superior en el área pedagógica.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="programa-card__tag">Competencia</span>
+          <p class="programa-card__name">CMAT — Campeonato Nacional de Matemáticas</p>
+          <p class="programa-card__desc">Torneo nacional de matemáticas para estudiantes de enseñanza media.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+          <span class="programa-card__tag">Competencia</span>
+          <p class="programa-card__name">Torneo Delivera</p>
+          <p class="programa-card__desc">Competencia de habilidades y emprendimiento para estudiantes técnico-profesionales.</p>
+        </div>
+
+        <div class="programa-card">
+          <div class="programa-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <span class="programa-card__tag">UC</span>
+          <p class="programa-card__name">Explorando Mi Entorno — Centro UC</p>
+          <p class="programa-card__desc">Programa de exploración científica y medioambiental del entorno local.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO ----------------------------------------------- -->
   <section class="contacto" id="contacto" aria-labelledby="contacto-titulo">
     <div class="container">
@@ -1105,17 +1484,27 @@
       <div class="contacto-layout">
         <div class="contacto-info">
           <h2>Liceo Bicentenario<br/>Mario Bertero Cevasco</h2>
+          <div class="contacto-cards">
+            <div class="contacto-card-item">
+              <p class="contacto-card-item__label">📞 Liceo</p>
+              <p class="contacto-card-item__value"><a href="tel:+56995525639">+56 9 9552 5639</a></p>
+            </div>
+            <div class="contacto-card-item">
+              <p class="contacto-card-item__label">📞 Recepción</p>
+              <p class="contacto-card-item__value"><a href="tel:+56998996368">+56 9 9899 6368</a></p>
+            </div>
+            <div class="contacto-card-item">
+              <p class="contacto-card-item__label">✉️ Correo Liceo</p>
+              <p class="contacto-card-item__value"><a href="mailto:info-mbc@corporacionislademaipo.cl">info-mbc@corporacionislademaipo.cl</a></p>
+            </div>
+            <div class="contacto-card-item">
+              <p class="contacto-card-item__label">🏥 Correo Licencias</p>
+              <p class="contacto-card-item__value"><a href="mailto:inspectorialbmbc@corporacionislademaipo.cl">inspectorialbmbc@corporacionislademaipo.cl</a></p>
+            </div>
+          </div>
           <div class="contacto-detail">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <p><strong>Dirección</strong>Rogelio Olave #989, Isla de Maipo, Región Metropolitana</p>
-          </div>
-          <div class="contacto-detail">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
-            <p><strong>Teléfono</strong>+56 2 3339 5060</p>
-          </div>
-          <div class="contacto-detail">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
-            <p><strong>Correo</strong>liceomariobertero@corporacionislademaipo.cl</p>
           </div>
           <div class="contacto-detail">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1195,6 +1584,18 @@
      JAVASCRIPT
 ============================================================ -->
 <script>
+  // ---- Dropdown móvil ----------------------------------------
+  document.querySelectorAll('.main-nav__item > a .nav-arrow').forEach(arrow => {
+    const link = arrow.closest('a');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        const item = link.closest('.main-nav__item');
+        item.classList.toggle('is-open');
+      }
+    });
+  });
+
   // ---- Hamburger menu ----------------------------------------
   const hamburger = document.querySelector('.hamburger');
   const mainNav   = document.getElementById('main-nav');
