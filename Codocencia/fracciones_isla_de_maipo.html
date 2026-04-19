@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fracciones en Isla de Maipo — 7° básico</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f5f5f3; color: #1a1a18; padding: 1.5rem; }
+.app { max-width: 720px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 1.5rem; }
+.header h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+.header p { font-size: 14px; color: #5f5e5a; }
+.tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.tab { padding: 8px 16px; border-radius: 8px; border: 0.5px solid #b4b2a9; font-size: 13px; cursor: pointer; background: #fff; color: #5f5e5a; transition: all 0.15s; }
+.tab.active { background: #1D9E75; color: #fff; border-color: #1D9E75; }
+.section { display: none; }
+.section.active { display: block; }
+.card { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+.card-title { font-size: 15px; font-weight: 500; margin-bottom: 0.75rem; }
+.cancha-grid { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.cancha-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cancha-label { font-size: 12px; color: #5f5e5a; }
+.fraction-display { display: flex; flex-direction: column; align-items: center; font-size: 22px; font-weight: 500; line-height: 1.2; }
+.fraction-display .num { border-bottom: 2px solid #1a1a18; padding-bottom: 2px; text-align: center; min-width: 28px; }
+.fraction-display .den { padding-top: 2px; text-align: center; }
+.controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 1rem; }
+.slider-row { display: flex; align-items: center; gap: 10px; }
+.slider-row label { font-size: 13px; color: #5f5e5a; min-width: 140px; }
+.slider-row input[type=range] { flex: 1; accent-color: #1D9E75; }
+.slider-row .val { font-size: 14px; font-weight: 500; min-width: 28px; text-align: right; }
+.result-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid #d3d1c7; }
+.result-box { background: #f1efe8; border-radius: 8px; padding: 10px 14px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.result-box .rlabel { font-size: 11px; color: #888780; text-transform: uppercase; letter-spacing: 0.04em; }
+.tag { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 12px; font-weight: 500; }
+.tag-impropia { background: #E1F5EE; color: #0F6E56; }
+.tag-propia { background: #E6F1FB; color: #185FA5; }
+.tag-equiv { background: #FAEEDA; color: #854F0B; }
+.classify-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+.frac-card { background: #f1efe8; border: 0.5px solid #d3d1c7; border-radius: 8px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: all 0.15s; }
+.frac-card:hover { border-color: #888780; }
+.frac-card.selected-propia { border-color: #185FA5; background: #E6F1FB; }
+.frac-card.selected-impropia { border-color: #0F6E56; background: #E1F5EE; }
+.frac-card.selected-equiv { border-color: #854F0B; background: #FAEEDA; }
+.frac-big { font-size: 20px; font-weight: 500; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
+.frac-big .n { border-bottom: 2px solid #1a1a18; min-width: 24px; text-align: center; padding-bottom: 1px; }
+.frac-big .d { min-width: 24px; text-align: center; padding-top: 1px; }
+.btn-classify { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.btn-type { padding: 7px 14px; border-radius: 8px; border: 0.5px solid; font-size: 12px; cursor: pointer; font-weight: 500; }
+.btn-propia { border-color: #185FA5; color: #185FA5; background: transparent; }
+.btn-propia.sel { background: #185FA5; color: #fff; }
+.btn-impropia { border-color: #0F6E56; color: #0F6E56; background: transparent; }
+.btn-impropia.sel { background: #0F6E56; color: #fff; }
+.btn-equiv { border-color: #854F0B; color: #854F0B; background: transparent; }
+.btn-equiv.sel { background: #854F0B; color: #fff; }
+.feedback { font-size: 13px; padding: 8px 12px; border-radius: 8px; margin-top: 8px; }
+.feedback.ok { background: #E1F5EE; color: #0F6E56; }
+.feedback.err { background: #FCEBEB; color: #A32D2D; }
+.mixto-steps { display: flex; flex-direction: column; gap: 12px; }
+.step { display: flex; align-items: flex-start; gap: 10px; }
+.step-num { min-width: 26px; height: 26px; border-radius: 50%; background: #1D9E75; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; margin-top: 2px; }
+.step-text { font-size: 14px; line-height: 1.6; }
+.step-text .hl { color: #1D9E75; font-weight: 500; }
+.eq-sign { font-size: 18px; color: #888780; margin: 0 4px; }
+.math-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.inline-frac { display: inline-flex; flex-direction: column; align-items: center; font-size: 16px; font-weight: 500; line-height: 1.2; vertical-align: middle; }
+.inline-frac .n { border-bottom: 1.5px solid #1a1a18; min-width: 20px; text-align: center; }
+.inline-frac .d { min-width: 20px; text-align: center; }
+.check-btn { padding: 8px 18px; border-radius: 8px; border: 0.5px solid #b4b2a9; background: #fff; font-size: 14px; cursor: pointer; margin-top: 10px; }
+.check-btn:hover { background: #f1efe8; }
+.context-note { font-size: 13px; color: #5f5e5a; font-style: italic; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="app">
+<div class="header">
+  <h1>Fracciones en Isla de Maipo 🌿</h1>
+  <p>7° básico · Liceo Mario Bertero Cevasco</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('explorar', this)">Explorar fracciones</button>
+  <button class="tab" onclick="showTab('clasificar', this)">Clasificar</button>
+  <button class="tab" onclick="showTab('mixtos', this)">Números mixtos</button>
+</div>
+
+<!-- TAB 1: EXPLORAR -->
+<div id="tab-explorar" class="section active">
+  <div class="card">
+    <div class="card-title">Las canchas de fútbol de Isla de Maipo</div>
+    <p class="context-note">El municipio construyó canchas nuevas en terrenos que antes eran baldíos. Cada cancha se divide en partes iguales. Tú decides cuánto pasto se instala.</p>
+    <div class="controls">
+      <div class="slider-row">
+        <label>Número de canchas</label>
+        <input type="range" min="1" max="4" value="2" step="1" id="sl-canchas" oninput="updateExplorer()">
+        <span class="val" id="v-canchas">2</span>
+      </div>
+      <div class="slider-row">
+        <label>Partes por cancha</label>
+        <input type="range" min="2" max="6" value="4" step="1" id="sl-partes" oninput="updateExplorer()">
+        <span class="val" id="v-partes">4</span>
+      </div>
+      <div class="slider-row">
+        <label>Partes con pasto</label>
+        <input type="range" min="0" max="24" value="7" step="1" id="sl-pasto" oninput="updateExplorer()">
+        <span class="val" id="v-pasto">7</span>
+      </div>
+    </div>
+    <div id="canchas-render" class="cancha-grid"></div>
+    <div class="result-row">
+      <div class="result-box">
+        <span class="rlabel">Fracción total</span>
+        <div class="fraction-display">
+          <span class="num" id="r-num">7</span>
+          <span class="den" id="r-den">4</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <span class="rlabel">Tipo</span>
+        <span id="r-tipo" class="tag tag-impropia">Impropia</span>
+      </div>
+      <div class="result-box" id="box-mixto" style="display:none">
+        <span class="rlabel">Número mixto</span>
+        <span id="r-mixto" style="font-size:18px; font-weight:500;"></span>
+      </div>
+      <div class="result-box">
+        <span class="rlabel">Valor decimal</span>
+        <span id="r-valor" style="font-size:18px; font-weight:500;"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: CLASIFICAR -->
+<div id="tab-clasificar" class="section">
+  <div class="card">
+    <div class="card-title">¿Qué tipo de fracción es cada una?</div>
+    <p class="context-note">El inspector de obras del municipio necesita clasificar estas fracciones de terrenos. Selecciona una fracción, elige su tipo y comprueba.</p>
+    <div class="classify-grid" id="classify-grid"></div>
+    <div style="margin-bottom: 10px;">
+      <p style="font-size:13px; color:#5f5e5a; margin-bottom:8px;">Fracción seleccionada: <span id="sel-frac" style="font-weight:500;">—</span></p>
+      <div class="btn-classify">
+        <button class="btn-type btn-propia" onclick="selectType('propia')">Propia (num &lt; den)</button>
+        <button class="btn-type btn-impropia" onclick="selectType('impropia')">Impropia (num &gt; den)</button>
+        <button class="btn-type btn-equiv" onclick="selectType('equiv')">Equivalente a 1</button>
+      </div>
+      <button class="check-btn" onclick="checkClassify()">Comprobar ✓</button>
+      <div id="classify-feedback"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: MIXTOS -->
+<div id="tab-mixtos" class="section">
+  <div class="card">
+    <div class="card-title">De fracción impropia a número mixto</div>
+    <p class="context-note">En el informe de obras, el arquitecto municipal necesita convertir las fracciones. Elige una fracción impropia y sigue los pasos.</p>
+    <div class="controls">
+      <div class="slider-row">
+        <label>Numerador</label>
+        <input type="range" min="2" max="20" value="14" step="1" id="sl-num" oninput="updateMixto()">
+        <span class="val" id="v-num">14</span>
+      </div>
+      <div class="slider-row">
+        <label>Denominador</label>
+        <input type="range" min="2" max="8" value="4" step="1" id="sl-den" oninput="updateMixto()">
+        <span class="val" id="v-den">4</span>
+      </div>
+    </div>
+    <div id="mixto-warning" style="display:none; font-size:13px; color:#854F0B; background:#FAEEDA; padding:8px 12px; border-radius:8px; margin-bottom:10px;"></div>
+    <div id="mixto-steps-container" class="mixto-steps"></div>
+    <div id="mixto-canvas-wrap" style="margin-top:1rem;"></div>
+  </div>
+</div>
+</div>
+
+<script>
+const FRACCIONES_CLASIFICAR = [
+  {n:2,d:3,tipo:'propia'},{n:4,d:4,tipo:'equiv'},{n:11,d:2,tipo:'impropia'},
+  {n:1,d:1,tipo:'equiv'},{n:3,d:2,tipo:'impropia'},{n:12,d:4,tipo:'impropia'},
+  {n:9,d:10,tipo:'propia'},{n:5,d:5,tipo:'equiv'},{n:3,d:7,tipo:'propia'}
+];
+let selectedFracIdx = null;
+let selectedType = null;
+let classifyState = FRACCIONES_CLASIFICAR.map(()=>null);
+
+function showTab(t, btn) {
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelector('#tab-'+t).classList.add('active');
+  btn.classList.add('active');
+}
+
+function drawCancha(partes, pastadas, size) {
+  const cols = partes <= 4 ? partes : Math.ceil(partes/2);
+  const rows = partes <= 4 ? 1 : 2;
+  const cw = size, ch = size;
+  const cellW = cw/cols, cellH = ch/rows;
+  let svg = `<svg width="${cw}" height="${ch}" viewBox="0 0 ${cw} ${ch}" xmlns="http://www.w3.org/2000/svg">`;
+  svg += `<rect width="${cw}" height="${ch}" fill="#D3D1C7" rx="3"/>`;
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) {
+    const i = r*cols+c;
+    const fill = i < pastadas ? '#1D9E75' : '#B4B2A9';
+    svg += `<rect x="${c*cellW+1}" y="${r*cellH+1}" width="${cellW-2}" height="${cellH-2}" fill="${fill}" rx="2"/>`;
+  }
+  svg += `</svg>`;
+  return svg;
+}
+
+function updateExplorer() {
+  const numC = parseInt(document.getElementById('sl-canchas').value);
+  const partes = parseInt(document.getElementById('sl-partes').value);
+  let pasto = parseInt(document.getElementById('sl-pasto').value);
+  const maxPasto = numC * partes;
+  if(pasto > maxPasto) { pasto = maxPasto; document.getElementById('sl-pasto').value = pasto; }
+  document.getElementById('sl-pasto').max = maxPasto;
+  document.getElementById('v-canchas').textContent = numC;
+  document.getElementById('v-partes').textContent = partes;
+  document.getElementById('v-pasto').textContent = pasto;
+  document.getElementById('r-num').textContent = pasto;
+  document.getElementById('r-den').textContent = partes;
+
+  let grid = document.getElementById('canchas-render');
+  grid.innerHTML = '';
+  let remaining = pasto;
+  for(let i=0;i<numC;i++){
+    const pastadas = Math.min(remaining, partes);
+    remaining -= pastadas;
+    const wrap = document.createElement('div');
+    wrap.className = 'cancha-wrap';
+    wrap.innerHTML = drawCancha(partes, pastadas, 72) + `<span class="cancha-label">Cancha ${i+1}</span>`;
+    grid.appendChild(wrap);
+  }
+
+  const tipo = document.getElementById('r-tipo');
+  const boxMixto = document.getElementById('box-mixto');
+  const rMixto = document.getElementById('r-mixto');
+  const rValor = document.getElementById('r-valor');
+  rValor.textContent = (pasto/partes).toFixed(2);
+
+  if(pasto === 0){
+    tipo.textContent = 'Cero'; tipo.className='tag tag-propia';
+    boxMixto.style.display='none';
+  } else if(pasto < partes){
+    tipo.textContent = 'Propia'; tipo.className='tag tag-propia';
+    boxMixto.style.display='none';
+  } else if(pasto === partes){
+    tipo.textContent = 'Equiv. a 1'; tipo.className='tag tag-equiv';
+    boxMixto.style.display='none';
+  } else {
+    tipo.textContent = 'Impropia'; tipo.className='tag tag-impropia';
+    const ent = Math.floor(pasto/partes);
+    const resto = pasto % partes;
+    boxMixto.style.display='flex';
+    rMixto.textContent = resto > 0 ? `${ent} ${resto}/${partes}` : `${ent}`;
+  }
+}
+
+function buildClassifyGrid() {
+  const grid = document.getElementById('classify-grid');
+  grid.innerHTML = '';
+  FRACCIONES_CLASIFICAR.forEach((f,i) => {
+    const card = document.createElement('div');
+    card.className = 'frac-card';
+    if(classifyState[i]==='propia') card.classList.add('selected-propia');
+    if(classifyState[i]==='impropia') card.classList.add('selected-impropia');
+    if(classifyState[i]==='equiv') card.classList.add('selected-equiv');
+    card.innerHTML = `<div class="frac-big"><span class="n">${f.n}</span><span class="d">${f.d}</span></div>`;
+    card.onclick = ()=>{ selectedFracIdx=i; document.getElementById('sel-frac').textContent=`${f.n}/${f.d}`; buildClassifyGrid(); };
+    if(selectedFracIdx===i) card.style.outline='2px solid #1D9E75';
+    grid.appendChild(card);
+  });
+}
+
+function selectType(t) {
+  selectedType = t;
+  document.querySelectorAll('.btn-type').forEach(b=>b.classList.remove('sel'));
+  document.querySelector('.btn-'+t).classList.add('sel');
+}
+
+function checkClassify() {
+  const fb = document.getElementById('classify-feedback');
+  if(selectedFracIdx===null){ fb.innerHTML='<div class="feedback err">Selecciona una fracción primero.</div>'; return; }
+  if(!selectedType){ fb.innerHTML='<div class="feedback err">Elige el tipo de fracción.</div>'; return; }
+  const f = FRACCIONES_CLASIFICAR[selectedFracIdx];
+  if(selectedType === f.tipo){
+    classifyState[selectedFracIdx] = selectedType;
+    const nombre = selectedType==='propia'?'propia':selectedType==='impropia'?'impropia':'equivalente a 1';
+    fb.innerHTML=`<div class="feedback ok">¡Correcto! ${f.n}/${f.d} es ${nombre} porque ${f.n} ${selectedType==='propia'?'<':'>'} ${f.d}${selectedType==='equiv'?' y son iguales':''}.</div>`;
+  } else {
+    fb.innerHTML=`<div class="feedback err">Revisa: compara numerador y denominador. ¿${f.n} es mayor, menor o igual a ${f.d}?</div>`;
+  }
+  buildClassifyGrid();
+}
+
+function updateMixto() {
+  const num = parseInt(document.getElementById('sl-num').value);
+  const den = parseInt(document.getElementById('sl-den').value);
+  document.getElementById('v-num').textContent = num;
+  document.getElementById('v-den').textContent = den;
+  const warn = document.getElementById('mixto-warning');
+  const cont = document.getElementById('mixto-steps-container');
+  const canvas = document.getElementById('mixto-canvas-wrap');
+
+  if(num <= den){
+    warn.style.display='block';
+    warn.textContent = num===den
+      ? `${num}/${den} equivale a 1 (no es impropia). Prueba con un numerador mayor al denominador.`
+      : `${num}/${den} es fracción propia. Prueba con un numerador mayor al denominador.`;
+    cont.innerHTML=''; canvas.innerHTML=''; return;
+  }
+  warn.style.display='none';
+  const ent = Math.floor(num/den);
+  const resto = num % den;
+  cont.innerHTML = `
+    <div class="step"><div class="step-num">1</div><div class="step-text">La fracción impropia es <span class="hl">${num}/${den}</span>. El numerador ${num} es mayor que el denominador ${den}.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Dividimos: <span class="hl">${num} ÷ ${den} = ${ent}</span> (parte entera) con resto <span class="hl">${resto}</span>.</div></div>
+    <div class="step"><div class="step-num">3</div>
+      <div class="step-text">El número mixto es:
+        <div class="math-row">
+          <span style="font-size:18px;font-weight:500;color:#1D9E75;">${ent}</span>
+          ${resto>0?`<span class="inline-frac"><span class="n">${resto}</span><span class="d">${den}</span></span>`:''}
+          <span class="eq-sign">=</span>
+          <span class="inline-frac"><span class="n">${num}</span><span class="d">${den}</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Comprobación: <span class="hl">${ent} × ${den} + ${resto} = ${ent*den+resto}</span> ✓</div></div>
+  `;
+
+  let cvHTML = `<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">`;
+  for(let i=0;i<ent+(resto>0?1:0);i++){
+    const p = i<ent ? den : resto;
+    cvHTML += `<div class="cancha-wrap">${drawCancha(den,p,64)}<span class="cancha-label">${i<ent?den+'/'+den:resto+'/'+den}</span></div>`;
+  }
+  cvHTML += `</div>`;
+  canvas.innerHTML = cvHTML;
+}
+
+buildClassifyGrid();
+updateExplorer();
+updateMixto();
+</script>
+</body>
+</html>
