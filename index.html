@@ -933,6 +933,14 @@
       flex-direction: column;
       align-items: center;
       gap: var(--spacing-sm);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    a.construccion-card:hover {
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
     }
     .construccion-card__icon {
       width: 52px; height: 52px;
@@ -1346,41 +1354,32 @@
       </div>
       <div class="construccion-grid">
 
-        <div class="construccion-card">
+        <a href="organigrama.html" class="construccion-card">
           <div class="construccion-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <p class="construccion-card__title">Organigrama</p>
           <p class="construccion-card__msg">Estructura institucional y equipo directivo</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
+          <span class="construccion-badge">Ver →</span>
+        </a>
 
-        <div class="construccion-card">
+        <a href="reglamentos.html" class="construccion-card">
           <div class="construccion-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
           <p class="construccion-card__title">Reglamentos y Planes</p>
           <p class="construccion-card__msg">Reglamento interno, convivencia y planes de estudio</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
+          <span class="construccion-badge">Ver →</span>
+        </a>
 
-        <div class="construccion-card">
+        <a href="profesores-jefe.html" class="construccion-card">
           <div class="construccion-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <p class="construccion-card__title">Profesores Jefe</p>
           <p class="construccion-card__msg">Foto, nombre y correo de cada profesor jefe por curso</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
-
-        <div class="construccion-card">
-          <div class="construccion-card__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <p class="construccion-card__title">Horarios</p>
-          <p class="construccion-card__msg">Horario escolar y atención de apoderados</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
+          <span class="construccion-badge">Ver →</span>
+        </a>
 
       </div>
     </div>
@@ -1394,32 +1393,23 @@
       </div>
       <div class="construccion-grid">
 
-        <div class="construccion-card">
+        <a href="curriculo.html" class="construccion-card">
           <div class="construccion-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
           </div>
           <p class="construccion-card__title">Currículum y Planes Diferenciados</p>
           <p class="construccion-card__msg">Planes de estudio y especialidades técnicas</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
+          <span class="construccion-badge">Ver →</span>
+        </a>
 
-        <div class="construccion-card">
-          <div class="construccion-card__icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <p class="construccion-card__title">Horarios Escolares</p>
-          <p class="construccion-card__msg">Horario semanal por nivel y atención de apoderados</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
-
-        <div class="construccion-card">
+        <a href="talleres.html" class="construccion-card">
           <div class="construccion-card__icon">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <p class="construccion-card__title">Talleres Extracurriculares</p>
           <p class="construccion-card__msg">Actividades deportivas, artísticas y culturales</p>
-          <span class="construccion-badge">Próximamente</span>
-        </div>
+          <span class="construccion-badge">Ver →</span>
+        </a>
 
       </div>
     </div>
@@ -1588,34 +1578,31 @@
         <p class="footer-brand__tagline">Liceo Bicentenario</p>
         <p>Formando ciudadanos íntegros con excelencia académica y valores desde 1995.</p>
       </div>
-      <nav class="footer-col" aria-label="Institución">
-        <h3>Institución</h3>
+      <nav class="footer-col" aria-label="El Liceo">
+        <h3>El Liceo</h3>
         <ul role="list">
-          <li><a href="#">Historia del Liceo</a></li>
-          <li><a href="#">Misión y Visión</a></li>
-          <li><a href="#">Proyecto Educativo</a></li>
-          <li><a href="#">Equipo Directivo</a></li>
-          <li><a href="#">Reglamentos</a></li>
+          <li><a href="organigrama.html">Organigrama</a></li>
+          <li><a href="reglamentos.html">Reglamentos y Planes</a></li>
+          <li><a href="profesores-jefe.html">Profesores Jefe</a></li>
+          <li><a href="index.html#mision">Misión y Visión</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-label="Académico">
         <h3>Académico</h3>
         <ul role="list">
-          <li><a href="#">Especialidades TP</a></li>
-          <li><a href="#">Plan de Estudios</a></li>
-          <li><a href="#">Calendario Escolar</a></li>
-          <li><a href="#">Biblioteca</a></li>
-          <li><a href="#">Plataforma Virtual</a></li>
+          <li><a href="curriculo.html">Currículum y Planes</a></li>
+          <li><a href="curriculo.html">Especialidades TP</a></li>
+          <li><a href="talleres.html">Talleres Extracurriculares</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-label="Comunidad">
         <h3>Comunidad</h3>
         <ul role="list">
-          <li><a href="#">Centro de Alumnos</a></li>
-          <li><a href="#">Centro de Padres</a></li>
-          <li><a href="#">Actividades</a></li>
-          <li><a href="#">Admisión 2026</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="index.html#programas">Programas y Convenios</a></li>
+          <li><a href="index.html#noticias">Noticias</a></li>
+          <li><a href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener">Admisión 2026</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
