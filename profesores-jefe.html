@@ -42,6 +42,26 @@
     .page-hero p { color: rgba(255,255,255,.8); font-size: 1rem; max-width: 540px; }
     .page-content { padding: 3rem 0; }
     .section-title { font-size: 1.3rem; font-weight: 800; color: var(--color-primary); padding-bottom: .5rem; border-bottom: 3px solid var(--color-gold); display: inline-block; margin-bottom: 1.5rem; }
+    /* TABS */
+    .tabs-bar { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; border-bottom: 3px solid var(--color-border); padding-bottom: 0; }
+    .tab-btn {
+      padding: .6rem 1.4rem;
+      font-size: .9rem; font-weight: 700;
+      border-radius: var(--radius-full) var(--radius-full) 0 0;
+      border: 2px solid var(--color-border);
+      border-bottom: none;
+      background: var(--color-off-white);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+      margin-bottom: -3px;
+      font-family: var(--font-base);
+    }
+    .tab-btn:hover { background: var(--color-white); color: var(--color-primary); }
+    .tab-btn.is-active { background: var(--color-white); color: var(--color-primary); border-color: var(--color-gold); border-bottom: 3px solid var(--color-white); font-weight: 800; }
+    .tab-panel { display: none; }
+    .tab-panel.is-active { display: block; }
+
     .nivel-label { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--color-gold); background: var(--color-primary); display: inline-block; padding: .2rem .8rem; border-radius: var(--radius-full); margin-bottom: 1rem; margin-top: 1.5rem; }
     .profesores-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
     .profesor-card { background: var(--color-off-white); border: 2px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; text-align: center; transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition); }
@@ -98,122 +118,145 @@
 
 <main class="page-content">
   <div class="container">
-    <h2 class="section-title">Directorio por Curso</h2>
 
-    <p class="nivel-label">Enseñanza Media — 1° Año</p>
-    <div class="profesores-grid">
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">1° Año A</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
+    <!-- TABS -->
+    <div class="tabs-bar" role="tablist" aria-label="Ciclo educativo">
+      <button class="tab-btn is-active" role="tab" aria-selected="true"  aria-controls="tab-parvularia" id="btn-parvularia">Educación Parvularia</button>
+      <button class="tab-btn"           role="tab" aria-selected="false" aria-controls="tab-basica"     id="btn-basica">Educación Básica</button>
+      <button class="tab-btn"           role="tab" aria-selected="false" aria-controls="tab-media"      id="btn-media">Educación Media</button>
+    </div>
+
+    <!-- PANEL: PARVULARIA -->
+    <div id="tab-parvularia" class="tab-panel is-active" role="tabpanel" aria-labelledby="btn-parvularia">
+      <p class="nivel-label">Pre-Kínder</p>
+      <div class="profesores-grid">
+        <div class="profesor-card">
+          <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="profesor-card__body">
+            <p class="profesor-card__curso">Pre-Kínder A</p>
+            <p class="profesor-card__name">Por confirmar</p>
+            <p class="profesor-card__email">—</p>
+          </div>
+        </div>
+        <div class="profesor-card">
+          <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="profesor-card__body">
+            <p class="profesor-card__curso">Pre-Kínder B</p>
+            <p class="profesor-card__name">Por confirmar</p>
+            <p class="profesor-card__email">—</p>
+          </div>
         </div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">1° Año B</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
+
+      <p class="nivel-label">Kínder</p>
+      <div class="profesores-grid">
+        <div class="profesor-card">
+          <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="profesor-card__body">
+            <p class="profesor-card__curso">Kínder A</p>
+            <p class="profesor-card__name">Por confirmar</p>
+            <p class="profesor-card__email">—</p>
+          </div>
         </div>
-      </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">1° Año C</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
+        <div class="profesor-card">
+          <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="profesor-card__body">
+            <p class="profesor-card__curso">Kínder B</p>
+            <p class="profesor-card__name">Por confirmar</p>
+            <p class="profesor-card__email">—</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <p class="nivel-label">Enseñanza Media — 2° Año</p>
-    <div class="profesores-grid">
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">2° Año A</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+    <!-- PANEL: BÁSICA -->
+    <div id="tab-basica" class="tab-panel" role="tabpanel" aria-labelledby="btn-basica">
+      <p class="nivel-label">1° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">1° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">1° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">2° Año B</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">2° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">2° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">2° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">2° Año C</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">3° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">3° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">3° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-    </div>
-
-    <p class="nivel-label">Enseñanza Media — 3° Año</p>
-    <div class="profesores-grid">
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">3° Año A</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">4° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">4° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">4° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">3° Año B</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">5° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">5° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">5° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">3° Año C</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">6° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">6° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">6° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+      </div>
+      <p class="nivel-label">7° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">7° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">7° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+      </div>
+      <p class="nivel-label">8° Básico</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">8° Básico A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">8° Básico B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
     </div>
 
-    <p class="nivel-label">Enseñanza Media — 4° Año</p>
-    <div class="profesores-grid">
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">4° Año A</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+    <!-- PANEL: MEDIA -->
+    <div id="tab-media" class="tab-panel" role="tabpanel" aria-labelledby="btn-media">
+      <p class="nivel-label">I Medio</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">I Medio A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">I Medio B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">I Medio C</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">4° Año B</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">II Medio</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">II Medio A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">II Medio B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">II Medio C</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
-      <div class="profesor-card">
-        <div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="profesor-card__body">
-          <p class="profesor-card__curso">4° Año C</p>
-          <p class="profesor-card__name">Por confirmar</p>
-          <p class="profesor-card__email">—</p>
-        </div>
+      <p class="nivel-label">III Medio</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">III Medio A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">III Medio B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">III Medio C</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+      </div>
+      <p class="nivel-label">IV Medio</p>
+      <div class="profesores-grid">
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">IV Medio A</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">IV Medio B</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
+        <div class="profesor-card"><div class="profesor-card__photo"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="profesor-card__body"><p class="profesor-card__curso">IV Medio C</p><p class="profesor-card__name">Por confirmar</p><p class="profesor-card__email">—</p></div></div>
       </div>
     </div>
 
   </div>
 </main>
+
+<script>
+  const tabBtns   = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+      tabPanels.forEach(p => p.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById(btn.getAttribute('aria-controls')).classList.add('is-active');
+    });
+  });
+</script>
 
 <footer class="site-footer">
   <p>© 2026 <a href="index.html">Liceo Bicentenario Mario Bertero Cevasco</a> — Todos los derechos reservados.</p>
