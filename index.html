@@ -264,9 +264,10 @@
       position: absolute;
       inset: 0;
       opacity: 0;
+      pointer-events: none;
       transition: opacity .7s ease;
     }
-    .hero__slide.is-active { opacity: 1; }
+    .hero__slide.is-active { opacity: 1; pointer-events: auto; }
     .hero__slide img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -1177,7 +1178,7 @@
             <time class="noticia-card__date" datetime="2026-04-08">08 de abril, 2026</time>
             <h3 class="noticia-card__title">Ceremonia de Premiación Excelencia Académica 2026</h3>
             <p class="noticia-card__excerpt">El liceo celebró a sus mejores estudiantes en una emotiva ceremonia donde se reconoció el esfuerzo y dedicación del primer semestre.</p>
-            <a href="#" class="btn-leer" aria-label="Leer más sobre la ceremonia de premiación">Leer más ›</a>
+            <a href="noticias/ceremonia-premiacion-2026.html" class="btn-leer" aria-label="Leer más sobre la ceremonia de premiación">Leer más ›</a>
           </div>
         </article>
 
