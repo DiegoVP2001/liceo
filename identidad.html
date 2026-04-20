@@ -29,7 +29,7 @@
     .top-bar__contact a:hover { color: var(--color-gold-light); }
     .top-bar__contact svg { width: 13px; height: 13px; fill: currentColor; }
     .site-header { background: var(--color-white); box-shadow: var(--shadow-sm); height: var(--nav-height); position: sticky; top: 0; z-index: 100; }
-    .site-header .inner { max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
     .site-logo { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
     .site-logo img { width: 48px; height: 48px; }
     .site-logo__name { font-size: .85rem; font-weight: 800; color: var(--color-primary); text-transform: uppercase; }
@@ -83,8 +83,7 @@
     .decalogo ol li { display: flex; align-items: baseline; gap: .75rem; font-size: .93rem; color: rgba(255,255,255,.9); }
     .decalogo ol li::before { content: attr(data-n); background: var(--color-gold); color: var(--color-primary-dark); font-weight: 800; font-size: .72rem; width: 22px; height: 22px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-    .site-footer { background: var(--color-primary-dark); color: rgba(255,255,255,.6); padding: 1.5rem 0; margin-top: 0; font-size: .82rem; text-align: center; }
-    .site-footer a { color: var(--color-gold); }
+    /* overridden by footer shared below */
     /* NAV SHARED */
     .main-nav { display: flex; align-items: center; }
     .main-nav__list { display: flex; gap: .15rem; }

@@ -84,40 +84,24 @@
     .page-content { padding: 3rem 0 4rem; }
     .section-title { font-size: 1.3rem; font-weight: 800; color: var(--color-primary); padding-bottom: .5rem; border-bottom: 3px solid var(--color-gold); display: inline-block; margin-bottom: 1.75rem; }
 
-    /* ---- ORG TREE ---- */
-    .org-wrap { overflow-x: auto; padding-bottom: 1rem; margin-bottom: 3rem; }
-    .org-tree { display: flex; flex-direction: column; align-items: center; min-width: 700px; }
-    .v-line { width: 2px; height: 24px; background: var(--color-gold); flex-shrink: 0; }
+    /* ---- ORG INDENTED LIST ---- */
+    .org-list { list-style: none; margin-bottom: 3rem; font-size: .92rem; }
+    .org-list li { position: relative; }
+    .org-node { display: inline-flex; align-items: center; gap: .55rem; padding: .45rem .9rem; border-radius: var(--radius-md); margin: .2rem 0; font-weight: 600; line-height: 1.3; }
+    /* level 0 — Dirección */
+    .org-node--l0 { background: var(--color-primary); color: white; font-size: 1rem; font-weight: 800; border-left: 4px solid var(--color-gold); }
+    /* level 1 — Sub Dirección */
+    .org-node--l1 { background: var(--color-primary-dark); color: white; font-size: .95rem; font-weight: 700; border-left: 4px solid var(--color-gold); margin-top: .75rem; }
+    /* level 2 — Subdirecciones */
+    .org-node--l2 { background: var(--color-primary); color: white; opacity: .92; border-left: 3px solid var(--color-gold-light); font-size: .88rem; }
+    /* level 3 — áreas */
+    .org-node--l3 { background: var(--color-off-white); color: var(--color-primary); border-left: 3px solid var(--color-gold); font-size: .85rem; font-weight: 600; }
+    /* level 4 — roles específicos */
+    .org-node--l4 { background: transparent; color: var(--color-text-muted); border-left: 2px solid var(--color-border); font-size: .82rem; font-weight: 500; }
 
-    /* node box */
-    .org-box { border-radius: var(--radius-md); padding: .65rem 1rem; text-align: center; box-shadow: var(--shadow-sm); border: 2px solid var(--color-border); background: var(--color-white); }
-    .org-box--dir { background: var(--color-primary); border-color: var(--color-gold); min-width: 200px; }
-    .org-box--sub { background: var(--color-primary-dark); border-color: var(--color-gold); min-width: 180px; }
-    .org-box--l3 { background: var(--color-primary); border-color: rgba(201,168,76,.5); min-width: 160px; opacity: .9; }
-    .org-box--l4 { background: var(--color-off-white); border-color: var(--color-border); min-width: 150px; }
-    .org-box__label { font-size: .78rem; font-weight: 700; line-height: 1.3; }
-    .org-box--dir .org-box__label, .org-box--sub .org-box__label, .org-box--l3 .org-box__label { color: white; }
-    .org-box--l4 .org-box__label { color: var(--color-primary); }
-
-    /* horizontal connector */
-    .h-row { display: flex; align-items: flex-start; width: 100%; }
-    .h-bar { flex: 1; height: 2px; background: var(--color-gold); margin-top: 0; }
-
-    /* column under a node */
-    .col { display: flex; flex-direction: column; align-items: center; flex: 1; }
-    .col .v-line { height: 20px; }
-
-    /* three-subdir layout */
-    .subdirs-row { display: flex; width: 100%; }
-    .subdir-col { flex: 1; display: flex; flex-direction: column; align-items: center; }
-
-    /* children list under a subdir node */
-    .children { display: flex; flex-direction: column; align-items: center; width: 100%; }
-    .children .v-line { height: 16px; }
-
-    /* grandchildren (l4) side-by-side */
-    .l4-group { display: flex; flex-direction: column; align-items: center; width: 90%; }
-    .l4-group .v-line { height: 14px; }
+    .org-list ul { list-style: none; padding-left: 1.75rem; border-left: 1px dashed var(--color-border); margin-left: .6rem; padding-top: .1rem; }
+    .org-list .org-node--l1 ~ ul { border-left-color: rgba(201,168,76,.35); }
+    .org-list .org-node--l2 ~ ul { border-left-color: rgba(201,168,76,.25); }
 
     /* ---- EQUIPO TABLE ---- */
     .team-table-wrap { overflow-x: auto; margin-top: 1rem; }
@@ -234,116 +218,78 @@
 <main class="page-content">
   <div class="container">
 
-    <!-- ORG CHART -->
+    <!-- ORG CHART — indented list -->
     <h2 class="section-title">Estructura Organizacional</h2>
-    <div class="org-wrap">
-      <div class="org-tree" aria-label="Organigrama institucional">
+    <ul class="org-list" aria-label="Organigrama institucional">
+      <li>
+        <span class="org-node org-node--l0">Dirección</span>
+        <ul>
+          <li>
+            <span class="org-node org-node--l1">Sub Dirección</span>
+            <ul>
 
-        <!-- Dirección -->
-        <div class="org-box org-box--dir"><p class="org-box__label">Dirección</p></div>
-        <div class="v-line"></div>
+              <!-- Administración Escolar -->
+              <li>
+                <span class="org-node org-node--l2">Subdirección Administración Escolar</span>
+                <ul>
+                  <li>
+                    <span class="org-node org-node--l3">Jefe de Servicios</span>
+                    <ul>
+                      <li><span class="org-node org-node--l4">Auxiliares de Aseo</span></li>
+                    </ul>
+                  </li>
+                  <li><span class="org-node org-node--l3">Secretarias</span></li>
+                  <li><span class="org-node org-node--l3">Personal Administrativo</span></li>
+                  <li><span class="org-node org-node--l3">Portería</span></li>
+                  <li><span class="org-node org-node--l3">Informática</span></li>
+                  <li><span class="org-node org-node--l3">Paradocentes</span></li>
+                </ul>
+              </li>
 
-        <!-- Sub Dirección -->
-        <div class="org-box org-box--sub"><p class="org-box__label">Sub Dirección</p></div>
-        <div class="v-line"></div>
+              <!-- Inclusión Escolar -->
+              <li>
+                <span class="org-node org-node--l2">Subdirección de Inclusión Escolar</span>
+                <ul>
+                  <li>
+                    <span class="org-node org-node--l3">PIE</span>
+                    <ul>
+                      <li><span class="org-node org-node--l4">Educador Diferencial</span></li>
+                      <li><span class="org-node org-node--l4">Psicopedagogo</span></li>
+                      <li><span class="org-node org-node--l4">Terapeuta Ocupacional</span></li>
+                      <li><span class="org-node org-node--l4">Fonoaudiólogo</span></li>
+                    </ul>
+                  </li>
+                  <li><span class="org-node org-node--l3">Asistente Social</span></li>
+                  <li>
+                    <span class="org-node org-node--l3">Orientador</span>
+                    <ul>
+                      <li><span class="org-node org-node--l4">Coordinadores de Nivel Pre-Kínder a 2° Básico</span></li>
+                      <li><span class="org-node org-node--l4">Coordinadores de Nivel 3° a 6° Básico</span></li>
+                      <li><span class="org-node org-node--l4">Coordinadores de Nivel 7° a 1° Medio</span></li>
+                      <li><span class="org-node org-node--l4">Coordinadores de Nivel 2° a 4° Medio</span></li>
+                      <li><span class="org-node org-node--l4">Psicólogos</span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
 
-        <!-- Horizontal bridge across 3 subdirecciones -->
-        <div style="display:flex;width:92%;align-items:flex-start;">
-          <div style="flex:1;height:2px;background:var(--color-gold);margin-top:0;"></div>
-          <div style="width:2px;height:2px;background:var(--color-gold);"></div>
-          <div style="flex:1;height:2px;background:var(--color-gold);margin-top:0;"></div>
-        </div>
+              <!-- Académica -->
+              <li>
+                <span class="org-node org-node--l2">Subdirección Académica</span>
+                <ul>
+                  <li><span class="org-node org-node--l3">Biblioteca CRA</span></li>
+                  <li><span class="org-node org-node--l3">Coordinación de Evaluación</span></li>
+                  <li><span class="org-node org-node--l3">Jefe de Departamento</span></li>
+                  <li><span class="org-node org-node--l3">Coordinación Taller Curricular</span></li>
+                  <li><span class="org-node org-node--l3">Coordinación Nivel Convivencia</span></li>
+                </ul>
+              </li>
 
-        <!-- 3 Subdirecciones -->
-        <div class="subdirs-row" style="width:92%;gap:.5rem;">
-
-          <!-- Subdirección Administración Escolar -->
-          <div class="subdir-col">
-            <div class="v-line"></div>
-            <div class="org-box org-box--sub" style="width:100%;max-width:240px;">
-              <p class="org-box__label">Subdirección<br>Administración Escolar</p>
-            </div>
-            <div class="children">
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Jefe de Servicios</p></div>
-              <div class="l4-group">
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Auxiliares de Aseo</p></div>
-              </div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Secretarias</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Personal Administrativo</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Portería</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Informática</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Paradocentes</p></div>
-            </div>
-          </div>
-
-          <!-- Subdirección Inclusión Escolar -->
-          <div class="subdir-col">
-            <div class="v-line"></div>
-            <div class="org-box org-box--sub" style="width:100%;max-width:240px;">
-              <p class="org-box__label">Subdirección<br>Inclusión Escolar</p>
-            </div>
-            <div class="children">
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">PIE</p></div>
-              <div class="l4-group">
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Educador Diferencial</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Psicopedagogo</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Terapeuta Ocupacional</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Fonoaudiólogo</p></div>
-              </div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Asistente Social</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Orientador</p></div>
-              <div class="l4-group">
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Coord. Nivel Pre-Kínder a 2° Básico</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Coord. Nivel 3° a 6° Básico</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Coord. Nivel 7° a 1° Medio</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Coord. Nivel 2° a 4° Medio</p></div>
-                <div class="v-line"></div>
-                <div class="org-box org-box--l4" style="width:90%;"><p class="org-box__label">Psicólogos</p></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Subdirección Académica -->
-          <div class="subdir-col">
-            <div class="v-line"></div>
-            <div class="org-box org-box--sub" style="width:100%;max-width:240px;">
-              <p class="org-box__label">Subdirección<br>Académica</p>
-            </div>
-            <div class="children">
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Biblioteca CRA</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Coordinación de Evaluación</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Jefe de Departamento</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Coordinación Taller Curricular</p></div>
-              <div class="v-line"></div>
-              <div class="org-box org-box--l3" style="width:90%;"><p class="org-box__label">Coordinación Nivel Convivencia</p></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
     <!-- EQUIPO DE GESTIÓN -->
     <h2 class="section-title">Equipo de Gestión</h2>
