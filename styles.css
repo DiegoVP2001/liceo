@@ -505,6 +505,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: .87rem;
   color: rgba(255,255,255,.7);
   transition: color var(--tr), padding-left var(--tr);
+  overflow-wrap: break-word;
+  hyphens: none;
+  word-break: break-all;
 }
 .footer__col a:hover { color: var(--c-gold-light); padding-left: 4px; }
 
