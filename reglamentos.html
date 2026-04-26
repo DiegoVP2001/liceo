@@ -5,110 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reglamentos y Planes — Liceo Bicentenario Mario Bertero Cevasco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --color-primary: #1a237e; --color-primary-dark: #0d1257;
-      --color-gold: #c9a84c; --color-gold-light: #e0c068;
-      --color-white: #ffffff; --color-off-white: #f5f6fa;
-      --color-text: #1a1a2e; --color-text-muted: #555577;
-      --color-border: #dde1f0;
-      --font-base: 'Inter', system-ui, sans-serif;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.12); --shadow-md: 0 4px 16px rgba(0,0,0,.12);
-      --radius-md: 8px; --radius-lg: 16px; --radius-full: 9999px;
-      --transition: 0.25s ease; --nav-height: 70px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-base); color: var(--color-text); background: var(--color-white); }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    .container { width: 100%; max-width: 1100px; margin-inline: auto; padding-inline: 1rem; }
-    .top-bar { background: var(--color-primary-dark); color: rgba(255,255,255,.85); font-size: .8rem; padding: .35rem 0; }
-    .top-bar .container { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
-    .top-bar__contact { display: flex; gap: 1rem; flex-wrap: nowrap; align-items: center; }
-    .top-bar__contact a { display: flex; align-items: center; gap: .3rem; white-space: nowrap; transition: color var(--transition); }
-    .top-bar__contact a:hover { color: var(--color-gold-light); }
-    .top-bar__contact svg { width: 13px; height: 13px; fill: currentColor; }
-    .site-header { background: var(--color-white); box-shadow: var(--shadow-sm); height: var(--nav-height); position: sticky; top: 0; z-index: 100; }
-    .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 1rem; }
-    .site-logo { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
-    .site-logo img { width: 48px; height: 48px; }
-    .site-logo__name { font-size: .85rem; font-weight: 800; color: var(--color-primary); text-transform: uppercase; }
-    .site-logo__sub { font-size: .7rem; color: var(--color-gold); font-weight: 600; text-transform: uppercase; }
-    .back-btn { display: inline-flex; align-items: center; gap: .4rem; font-size: .875rem; font-weight: 700; color: var(--color-primary); border: 2px solid var(--color-primary); padding: .4rem 1rem; border-radius: var(--radius-full); transition: background var(--transition), color var(--transition); }
-    .back-btn:hover { background: var(--color-primary); color: white; }
-    .page-hero { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: white; padding: 3rem 0; }
-    .page-hero__tag { display: inline-block; background: var(--color-gold); color: white; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding: .2rem .75rem; border-radius: var(--radius-full); margin-bottom: 1rem; }
-    .page-hero h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: .75rem; }
-    .page-hero p { color: rgba(255,255,255,.8); font-size: 1rem; max-width: 540px; }
-    .page-content { padding: 3rem 0; }
-    .section-title { font-size: 1.3rem; font-weight: 800; color: var(--color-primary); padding-bottom: .5rem; border-bottom: 3px solid var(--color-gold); display: inline-block; margin-bottom: 1.5rem; }
-    .docs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
-    .doc-card { border: 2px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color var(--transition), box-shadow var(--transition); }
-    .doc-card:hover { border-color: var(--color-gold); box-shadow: var(--shadow-md); }
-    .doc-card__icon { width: 44px; height: 44px; background: var(--color-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .doc-card__icon svg { width: 22px; height: 22px; fill: var(--color-gold); }
-    .doc-card__info { flex: 1; }
-    .doc-card__name { font-size: .95rem; font-weight: 700; color: var(--color-primary); margin-bottom: .2rem; }
-    .doc-card__meta { font-size: .78rem; color: var(--color-text-muted); }
-    .badge-proximamente { display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: var(--color-off-white); border: 1px solid var(--color-border); color: var(--color-text-muted); padding: .15rem .6rem; border-radius: var(--radius-full); margin-top: .3rem; }
-    /* overridden by footer shared below */
-    /* NAV SHARED */
-    .main-nav { display: flex; align-items: center; }
-    .main-nav__list { display: flex; gap: .15rem; }
-    .main-nav__list a { display: block; padding: .5rem .75rem; font-size: .875rem; font-weight: 600; color: var(--color-text); border-radius: 4px; transition: color var(--transition), background var(--transition); white-space: nowrap; }
-    .main-nav__list a:hover { color: var(--color-primary); background: rgba(26,35,126,.07); }
-    .main-nav__list a.nav-cta { background: var(--color-gold); color: var(--color-white); border-radius: var(--radius-full); padding: .5rem 1.1rem; }
-    .main-nav__list a.nav-cta:hover { background: var(--color-gold-light); color: var(--color-primary-dark); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; padding: .5rem; border-radius: 4px; cursor: pointer; border: none; background: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--color-primary); border-radius: 2px; transition: transform var(--transition), opacity var(--transition); }
-    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width: 900px) {
-      .hamburger { display: flex; }
-      .main-nav { position: fixed; inset: var(--nav-height) 0 0 0; background: var(--color-white); flex-direction: column; align-items: flex-start; padding: 1.5rem; transform: translateX(100%); transition: transform var(--transition); overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,.16); }
-      .main-nav.is-open { transform: translateX(0); }
-      .main-nav__list { flex-direction: column; gap: .25rem; width: 100%; }
-      .main-nav__list a { font-size: 1rem; padding: .75rem 1rem; }
-    }
-    .main-nav__item { position: relative; }
-    .main-nav__item:hover .dropdown, .main-nav__item:focus-within .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .dropdown { position: absolute; top: calc(100% + 6px); left: 0; background: var(--color-white); border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,.16); border-top: 3px solid var(--color-gold); min-width: 220px; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity var(--transition), transform var(--transition); z-index: 200; }
-    .dropdown a { display: block; padding: .6rem 1rem; font-size: .85rem; font-weight: 500; color: var(--color-text); border-bottom: 1px solid var(--color-border); transition: background var(--transition), color var(--transition); }
-    .dropdown a:last-child { border-bottom: none; }
-    .dropdown a:hover { background: var(--color-off-white); color: var(--color-primary); }
-    .nav-arrow { font-size: .6rem; margin-left: .2rem; }
-    @media (max-width: 900px) {
-      .dropdown { position: static; box-shadow: none; border: none; border-left: 3px solid var(--color-gold); border-radius: 0; opacity: 1; pointer-events: auto; transform: none; margin-left: 1rem; display: none; }
-      .main-nav__item.is-open .dropdown { display: block; }
-    }
-    /* FOOTER SHARED */
-    .site-footer { background: var(--color-primary-dark); color: rgba(255,255,255,.75); padding: 3rem 0 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
-    .footer-brand__name { font-size: 1rem; font-weight: 800; color: var(--color-white); text-transform: uppercase; letter-spacing: .03em; margin-bottom: .25rem; margin-top: 1rem; }
-    .footer-brand__tagline { font-size: .82rem; color: var(--color-gold); font-weight: 600; margin-bottom: 1rem; }
-    .footer-brand p { font-size: .85rem; line-height: 1.7; max-width: 260px; }
-    .footer-col h3 { font-size: .9rem; font-weight: 700; color: var(--color-white); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--color-gold); display: inline-block; }
-    .footer-col ul { display: flex; flex-direction: column; gap: .4rem; list-style: none; }
-    .footer-col ul a { font-size: .88rem; color: rgba(255,255,255,.7); transition: color var(--transition); }
-    .footer-col ul a:hover { color: var(--color-gold-light); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .8rem; }
-    .footer-bottom a { color: var(--color-gold); }
-    .footer-bottom a:hover { text-decoration: underline; }
-    .top-bar__social { display: flex; gap: .5rem; align-items: center; }
-    .top-bar__social a { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: var(--radius-full); background: rgba(255,255,255,.1); transition: background var(--transition); }
-    .top-bar__social a:hover { background: var(--color-gold); }
-    .site-logo__emblem { width: 52px; height: 52px; flex-shrink: 0; }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="subpage.css" />
 </head>
-<body>
+<body data-theme="light">
 
-<div class="top-bar">
+<div class="topbar" role="region" aria-label="Información de contacto">
   <div class="container">
-    <div class="top-bar__contact">
+    <div class="topbar__contact">
       <a href="tel:+56995525639">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.25 1.01z"/></svg>
         +56 9 9552 5639
@@ -118,34 +24,38 @@
         info-mbc@corporacionislademaipo.cl
       </a>
     </div>
-    <div class="top-bar__social">
-      <a href="https://www.facebook.com/liceomariobertero" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/lbmbc_oficial/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" stroke="white" stroke-width="1.5" fill="none"/></svg>
-      </a>
+    <div class="topbar__right">
+      <div class="topbar__social" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/liceomariobertero" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/lbmbc_oficial/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-<header class="site-header">
+<header class="header" id="site-header">
   <div class="container">
-    <a href="index.html" class="site-logo" aria-label="Inicio — Liceo Bicentenario Mario Bertero Cevasco">
-      <img class="site-logo__emblem" src="logo.png" alt="" width="52" height="52" style="width:52px;height:52px;" />
-      <div class="site-logo__text">
-        <div class="site-logo__name">Liceo Mario Bertero Cevasco</div>
-        <div class="site-logo__sub">Liceo Bicentenario</div>
+    <a href="index.html" class="brand" aria-label="Inicio — Liceo Bicentenario Mario Bertero Cevasco">
+      <img class="brand__emblem" src="logo.png" alt="" width="52" height="52" />
+      <div class="brand__text">
+        <div class="brand__name">Mario Bertero Cevasco</div>
+        <div class="brand__sub">Liceo Bicentenario</div>
       </div>
     </a>
+
     <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-      <ul class="main-nav__list" role="list">
-        <li class="main-nav__item"><a href="index.html">Inicio</a></li>
-        <li class="main-nav__item">
-          <a href="#">El Liceo <span class="nav-arrow">▼</span></a>
+
+    <nav class="nav" id="main-nav" aria-label="Navegación principal">
+      <ul class="nav__list" role="list">
+        <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">El Liceo <svg class="chev" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="dropdown" role="menu">
             <a href="identidad.html" role="menuitem">Nuestra Identidad</a>
             <a href="organigrama.html" role="menuitem">Organigrama</a>
@@ -153,30 +63,46 @@
             <a href="profesores-jefe.html" role="menuitem">Profesores Jefe</a>
           </div>
         </li>
-        <li class="main-nav__item">
-          <a href="#">Académico <span class="nav-arrow">▼</span></a>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Académico <svg class="chev" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="dropdown" role="menu">
             <a href="curriculo.html" role="menuitem">Currículum</a>
             <a href="talleres.html" role="menuitem">Talleres Extracurriculares</a>
           </div>
         </li>
-        <li class="main-nav__item">
-          <a href="#">Comunidad <span class="nav-arrow">▼</span></a>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Comunidad <svg class="chev" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="dropdown" role="menu">
             <a href="index.html#programas" role="menuitem">Programas y Convenios</a>
+            <a href="index.html#galeria" role="menuitem">Galería</a>
             <a href="index.html#noticias" role="menuitem">Noticias</a>
           </div>
         </li>
-        <li class="main-nav__item"><a href="index.html#galeria">Galería</a></li>
-        <li class="main-nav__item"><a href="index.html#contacto">Contacto</a></li>
-        <li class="main-nav__item"><a href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener" class="nav-cta">Admisión</a></li>
+        <li class="nav__item"><a href="index.html#galeria" class="nav__link">Galería</a></li>
+        <li class="nav__item"><a href="index.html#contacto" class="nav__link">Contacto</a></li>
       </ul>
     </nav>
+
+    <div class="header__right">
+      <button class="icon-btn" id="theme-toggle" aria-label="Cambiar a modo oscuro">
+        <svg id="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a class="cta-admision" href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener">
+        Admisión 2026
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
   </div>
 </header>
 
 <div class="page-hero">
   <div class="container">
+    <nav class="page-hero__crumb" aria-label="Migas de pan">
+      <a href="index.html">Inicio</a>
+      <span class="page-hero__crumb-sep">/</span>
+      <span>Reglamentos y Planes</span>
+    </nav>
     <span class="page-hero__tag">El Liceo</span>
     <h1>Reglamentos y Planes</h1>
     <p>Documentos oficiales de convivencia, normativa interna y planes institucionales del liceo.</p>
@@ -186,14 +112,14 @@
 <main class="page-content">
   <div class="container">
 
-    <h2 class="section-title">Reglamentos</h2>
+    <h2 class="subsection__title">Reglamentos</h2>
     <div class="docs-grid">
       <a href="https://cdnsae.mineduc.cl/documentos/10726/ReglamentodeConvivencia10726.pdf" target="_blank" rel="noopener" class="doc-card" style="text-decoration:none;">
         <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="doc-card__info">
           <p class="doc-card__name">Reglamento Interno de Convivencia Escolar</p>
           <p class="doc-card__meta">Normativa de conducta y convivencia</p>
-          <span class="badge-proximamente" style="background:#e8f5e9;border-color:#a5d6a7;color:#2e7d32;">📄 Descargar PDF</span>
+          <span class="badge badge--success">📄 Descargar PDF</span>
         </div>
       </a>
       <div class="doc-card">
@@ -201,7 +127,7 @@
         <div class="doc-card__info">
           <p class="doc-card__name">Reglamento de Evaluación y Promoción</p>
           <p class="doc-card__meta">Criterios de calificación y promoción escolar</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
       <div class="doc-card">
@@ -209,19 +135,19 @@
         <div class="doc-card__info">
           <p class="doc-card__name">Protocolo de Actuación ante Situaciones de Vulneración</p>
           <p class="doc-card__meta">Procedimientos de protección estudiantil</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
     </div>
 
-    <h2 class="section-title">Planes Institucionales</h2>
+    <h2 class="subsection__title">Planes Institucionales</h2>
     <div class="docs-grid">
       <div class="doc-card">
         <div class="doc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
         <div class="doc-card__info">
           <p class="doc-card__name">Proyecto Educativo Institucional (PEI)</p>
           <p class="doc-card__meta">Visión, misión y objetivos estratégicos</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
       <div class="doc-card">
@@ -229,7 +155,7 @@
         <div class="doc-card__info">
           <p class="doc-card__name">Plan de Mejoramiento Educativo (PME)</p>
           <p class="doc-card__meta">Iniciativas de mejora para el año en curso</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
       <div class="doc-card">
@@ -237,7 +163,7 @@
         <div class="doc-card__info">
           <p class="doc-card__name">Plan de Formación Ciudadana</p>
           <p class="doc-card__meta">Actividades cívicas y participación democrática</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
       <div class="doc-card">
@@ -245,7 +171,7 @@
         <div class="doc-card__info">
           <p class="doc-card__name">Plan de Gestión de la Convivencia Escolar</p>
           <p class="doc-card__meta">Estrategias de buen trato y resolución de conflictos</p>
-          <span class="badge-proximamente">Próximamente disponible</span>
+          <span class="badge">Próximamente</span>
         </div>
       </div>
     </div>
@@ -253,77 +179,124 @@
   </div>
 </main>
 
-<footer class="site-footer">
+<footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="logo.png" alt="" width="56" height="56" />
-        <p class="footer-brand__name">Liceo Mario Bertero Cevasco</p>
-        <p class="footer-brand__tagline">Liceo Bicentenario</p>
-        <p>Formando ciudadanos íntegros con excelencia académica y valores desde 1997.</p>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-row">
+          <img src="logo.png" alt="" width="48" height="48" />
+          <div>
+            <div class="footer__brand-name">Mario Bertero Cevasco</div>
+            <div class="footer__brand-tag">Liceo Bicentenario</div>
+          </div>
+        </div>
+        <p>Comunidad educativa científico-humanista, comprometida con la formación integral de nuestros estudiantes desde 1997.</p>
+        <div class="topbar__social" style="margin-top:.5rem">
+          <a href="https://www.facebook.com/liceomariobertero" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/lbmbc_oficial/?hl=es" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+        </div>
       </div>
-      <nav class="footer-col" aria-label="El Liceo">
+
+      <div class="footer__col">
         <h3>El Liceo</h3>
-        <ul role="list">
+        <ul>
           <li><a href="identidad.html">Nuestra Identidad</a></li>
           <li><a href="organigrama.html">Organigrama</a></li>
           <li><a href="reglamentos.html">Reglamentos y Planes</a></li>
           <li><a href="profesores-jefe.html">Profesores Jefe</a></li>
           <li><a href="index.html#contacto">Contacto</a></li>
         </ul>
-      </nav>
-      <nav class="footer-col" aria-label="Académico">
+      </div>
+
+      <div class="footer__col">
         <h3>Académico</h3>
-        <ul role="list">
+        <ul>
           <li><a href="curriculo.html">Currículum</a></li>
           <li><a href="talleres.html">Talleres Extracurriculares</a></li>
-        </ul>
-      </nav>
-      <nav class="footer-col" aria-label="Comunidad">
-        <h3>Comunidad</h3>
-        <ul role="list">
-          <li><a href="index.html#programas">Programas y Convenios</a></li>
           <li><a href="index.html#noticias">Noticias</a></li>
-          <li><a href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener">Admisión 2026</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="index.html#galeria">Galería</a></li>
         </ul>
-      </nav>
+      </div>
+
+      <div class="footer__col">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="tel:+56995525639">+56 9 9552 5639</a></li>
+          <li><a href="mailto:info-mbc@corporacionislademaipo.cl">info-mbc@corporacionislademaipo.cl</a></li>
+          <li><a href="https://www.sistemadeadmisionescolar.cl/" target="_blank" rel="noopener">Admisión 2026</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Liceo Bicentenario Mario Bertero Cevasco. Todos los derechos reservados.</p>
-      <p><a href="#">Política de privacidad</a> · <a href="#">Transparencia activa</a></p>
+
+    <div class="footer__bottom">
+      <span>© 2026 Liceo Bicentenario Mario Bertero Cevasco — Corporación Educacional Isla de Maipo</span>
+      <span><a href="#">Política de privacidad</a> · <a href="#">Transparencia activa</a></span>
     </div>
   </div>
 </footer>
+
 <script>
-  document.querySelectorAll('.main-nav__item > a .nav-arrow').forEach(arrow => {
-    const link = arrow.closest('a');
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 900) {
-        e.preventDefault();
-        link.closest('.main-nav__item').classList.toggle('is-open');
-      }
-    });
+  // Dark mode
+  (function() {
+    const saved = localStorage.getItem('mbc-theme') || 'light';
+    document.body.setAttribute('data-theme', saved);
+    const moon = document.getElementById('icon-moon');
+    const sun = document.getElementById('icon-sun');
+    if (saved === 'dark' && moon && sun) { moon.style.display = 'none'; sun.style.display = ''; }
+  })();
+  document.getElementById('theme-toggle')?.addEventListener('click', () => {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    document.body.setAttribute('data-theme', next);
+    localStorage.setItem('mbc-theme', next);
+    const moon = document.getElementById('icon-moon');
+    const sun = document.getElementById('icon-sun');
+    if (moon && sun) { moon.style.display = next === 'dark' ? 'none' : ''; sun.style.display = next === 'dark' ? '' : 'none'; }
   });
+
+  // Header scroll
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => hdr?.classList.toggle('is-scrolled', window.scrollY > 8), { passive: true });
+
+  // Hamburger
   const hamburger = document.querySelector('.hamburger');
   const mainNav = document.getElementById('main-nav');
-  hamburger.addEventListener('click', () => {
+  hamburger?.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true';
     hamburger.setAttribute('aria-expanded', String(!expanded));
-    mainNav.classList.toggle('is-open', !expanded);
+    mainNav?.classList.toggle('is-open', !expanded);
+    document.body.style.overflow = !expanded ? 'hidden' : '';
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mainNav?.classList.contains('is-open')) {
       mainNav.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.focus();
+      hamburger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
   });
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 900) {
+
+  // Mobile dropdown accordion
+  document.querySelectorAll('.nav__item > .nav__link').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth > 980) return;
+      const item = link.closest('.nav__item');
+      if (!item.querySelector('.dropdown')) return;
+      e.preventDefault();
+      item.classList.toggle('is-open');
+    });
+  });
+
+  // Close nav on link click (mobile)
+  mainNav?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 980) {
         mainNav.classList.remove('is-open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
     });
   });
